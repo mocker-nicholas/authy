@@ -1,0 +1,14 @@
+.landing {
+  background: url("../../img/landing.svg");
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 10vh;
+  width: 100vw;
+}
+
+.landing header {
+  margin-top: 25vh;
+}

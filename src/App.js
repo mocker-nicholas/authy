@@ -7,11 +7,10 @@ import VirtualTerminal from "./pages/VirtualTerminal";
 import Invoicing from "./pages/Invoicing";
 import Customers from "./pages/Customers"
 
-import './App.css';
-
 
 function App() {
   return (
+    <React.Fragment>
     <Routes>
       <Route path="/"element={<Landing/>}/>
       <Route path="/vt" element={<VirtualTerminal/>}></Route>
@@ -19,6 +18,7 @@ function App() {
       <Route path="/reporting" element={<Reporting/>}></Route>
       <Route path="/invoicing" element={<Invoicing/>}></Route>
     </Routes>
+    </React.Fragment>
   );
 }
 
