@@ -1,0 +1,46 @@
+.navbar {
+    background-color: var(--sea-blue);
+    color: var(--white);
+    border-radius: 30% 0% 0% 30%;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    height: 100vh;
+    width: 30vw;
+    position: absolute;
+    right: 0;
+
+}
+
+.navbar ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.navbar li {
+    text-align: center;
+}
+
+.navbar a {
+    transition: 0.4s all;
+}
+
+.navlink {
+    background-color: var(--dark-blue);
+    padding: 10px 12px;
+    border-radius: 50%;
+}
+
+.active {
+    color: var(--yellow);
+    background-color: var(--yellow);
+    border-radius: 50%;
+    padding: 10px 12px;
+}
+
+.navbar a:visited {
+    color: var(--white)
+}
