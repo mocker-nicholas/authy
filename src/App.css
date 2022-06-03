@@ -26,8 +26,9 @@
     box-sizing: border-box;
 }
 
+/* //////// */
 /* Buttons */
-
+/* //////// */
 .btn-dark-blue {
   background-color: var(--dark-blue);
   color: var(--white);
@@ -37,6 +38,7 @@
   font-size: 1rem;
   border-radius: 4px;
   transition: 0.4s all;
+  cursor: pointer;
 }
 
 .btn-dark-blue:hover {
@@ -45,4 +47,14 @@
 
 .btn-dark-blue:active {
 background-color: var(--yellow);
+}
+
+/* //////// */
+/* Elements */
+/* //////// */
+.sea-blue-divide {
+  height: 2px;
+  width: 100%;
+  background-color: var(--sea-blue);
+  margin: 0.5rem 0;
 }

@@ -1,0 +1,5 @@
+.footer {
+    background-color: var(--dark-blue);
+    border-radius: 25% 25% 0 0;
+    height: 100px;
+}

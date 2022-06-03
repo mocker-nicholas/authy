@@ -6,9 +6,10 @@
   justify-content: center;
   align-items: center;
   min-height: 10vh;
-  width: 100vw;
+  width: 100%;
 }
 
 .landing header {
   margin-top: 25vh;
+  margin-bottom: 4rem;
 }

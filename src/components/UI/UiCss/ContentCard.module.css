@@ -1,3 +1,17 @@
 .card {
-  border: 1px solid red;
+  color: var(--dark-blue);
+  height: 400px;
+  width: 325px;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-bottom: 4rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.card img {
+  height: 200px;
+  width: 100%;
 }
