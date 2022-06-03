@@ -1,4 +1,4 @@
-import { React } from "react";
+import { React, useState } from "react";
 import { useLocation, NavLink } from "react-router-dom";
 import classes from "./UiCss/Navbar.module.css";
 
@@ -7,9 +7,22 @@ const NavBar = (props) => {
   let navContent;
   const activeStyle = classes.active;
   const navLinkStyle = classes.navlink;
+  const [showNav, setShowNav] = useState(false);
+
+  const showNavHandler = () => {
+    setShowNav(!showNav);
+  };
 
   navContent = (
-    <nav className={classes.navbar}>
+    <nav
+      className={
+        showNav ? `${classes.navbar} ${classes.extend}` : classes.navbar
+      }
+    >
+      <div onClick={showNavHandler} className={classes.navlines}>
+        <div className={classes.navline}></div>
+        <div className={classes.navline}></div>
+      </div>
       <ul>
         <li>
           <NavLink
@@ -58,14 +71,10 @@ const NavBar = (props) => {
               isActive ? activeStyle : navLinkStyle
             }
           >
-            <i class="fa-solid fa-envelope"></i>
+            <i className="fa-solid fa-envelope"></i>
           </NavLink>
         </li>
       </ul>
-      <div className={classes.navlines}>
-        <div className={classes.navline}></div>
-        <div className={classes.navline}></div>
-      </div>
     </nav>
   );
 

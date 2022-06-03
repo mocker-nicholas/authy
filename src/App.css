@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;700&display=swap');
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
 :root {
     --sky-blue: rgb(142, 202, 230);
     --sea-blue: rgb(33, 158, 188);
@@ -26,8 +20,17 @@
     box-sizing: border-box;
 }
 
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 li {
   list-style: none;
+}
+
+#root {
+  overflow-x: hidden;
 }
 
 /* //////// */
@@ -41,7 +44,7 @@ li {
   padding: 10px;
   font-size: 1rem;
   border-radius: 4px;
-  transition: 0.4s all;
+  transition: 0.2s all;
   cursor: pointer;
 }
 
