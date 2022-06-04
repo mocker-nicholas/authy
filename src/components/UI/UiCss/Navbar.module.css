@@ -9,7 +9,7 @@
     width: 100vw;
     height: 20vh;
     padding: 0.5rem 1rem 1rem 1rem;
-    position: absolute;
+    position: fixed;
     bottom: -15vh;
     transition: 0.4s bottom;
 }
@@ -23,10 +23,12 @@
 
 .navbar li {
     text-align: center;
+    margin-bottom: 1rem;
 }
 
 .navbar a {
     transition: 0.4s all;
+    color: var(--white)
 }
 
 .navlink {
@@ -48,7 +50,7 @@
 
 .navlines{
     width: 70%;
-    margin: 0 auto 0 auto;
+    margin: 5px auto 0 auto;
 }
 
 .navline {
