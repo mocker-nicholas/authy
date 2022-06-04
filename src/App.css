@@ -24,6 +24,10 @@ li {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 #root {
   overflow-x: hidden;
 }
@@ -45,10 +49,16 @@ li {
 
 .btn-dark-blue:hover {
   background-color: var(--o-dark-blue);
+  cursor: pointer;
 }
 
 .btn-dark-blue:active {
 background-color: var(--yellow);
+cursor: pointer;
+}
+
+.btn-dark-blue:visited {
+  color: inherit;
 }
 
 /* //////// */

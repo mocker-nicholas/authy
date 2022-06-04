@@ -14,3 +14,9 @@ export const searchUnsettled = async (body) => {
   const data = response.data;
   return data;
 }
+
+export const getStats = async () => {
+  const response = await request.post("/reporting/week")
+  const data = response.data;
+  return data;
+}

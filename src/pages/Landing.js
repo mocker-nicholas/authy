@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import classes from "./pages-css/Landing.module.css";
 import ContentCard from "../components/UI/ContentCard";
 import Footer from "../components/UI/Footer";
@@ -11,7 +12,7 @@ const Landing = () => {
     <React.Fragment>
       <main className={classes.landing}>
         <header>
-          <button className="btn-dark-blue">I am Human</button>
+          <Link to="/home" className="btn-dark-blue">Continue to App</Link>
         </header>
         <section>
           <ContentCard
