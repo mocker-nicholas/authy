@@ -1,5 +1,10 @@
 .home {
+  color: var(--dark-blue);
+ padding: 0.5rem;
+}
 
+.home header {
+  text-align: center;
 }
 
 .graph {

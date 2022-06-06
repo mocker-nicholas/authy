@@ -10,14 +10,18 @@ export const searchBodySlice = createSlice({
 
   reducers: {
     nextPage: (state) => {
-      state.offset++
+      console.log("gotme")
+     state.offset++
     },
     prevPage: (state) => {
       state.offset--
+    },
+    offsetReset: (state) => {
+      state.offset = 1
     }
   }
 })
 
-export const {nextPage, prevPage} = searchBodySlice.actions;
+export const {nextPage, prevPage, offsetReset} = searchBodySlice.actions;
 
 export default searchBodySlice.reducer;
