@@ -7,10 +7,8 @@
     flex-direction: column;
     justify-content: space-between;
     width: 100vw;
-    height: 20vh;
-    padding: 0.5rem 1rem 1rem 1rem;
+    padding: 0.25rem 1rem 1rem 1rem;
     position: fixed;
-    bottom: -15vh;
     transition: 0.4s bottom;
 }
 
@@ -23,7 +21,6 @@
 
 .navbar li {
     text-align: center;
-    margin-bottom: 1rem;
 }
 
 .navbar a {
@@ -50,24 +47,25 @@
 
 .navlines{
     width: 70%;
-    margin: 5px auto 0 auto;
+    margin: 0 auto;
+    cursor: pointer;
 }
 
 .navline {
     background-color: var(--white);
     height: 100%;
     width: 100%;
-    margin: 2px;
+    margin: 5px;
 }
 
 .extend {
     bottom: 0vh;
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 270px) {
     .navbar {
-        height: 30vh;
-        bottom: -22vh;
+        height: 120px;
+        bottom: -80px;
     }
 
     .extend {
@@ -75,7 +73,17 @@
     }
 
     .navlines{
-        width: 50%;
-        margin: 0 auto 0 auto;
+        width: 60%;
+    }
+}
+
+/* The fold ): */
+@media screen and (max-width: 300px) {
+    .navbar ul {
+        gap: 0.25rem;
+    }
+
+    .navlink, .active {
+        padding: 6px 8px;
     }
 }

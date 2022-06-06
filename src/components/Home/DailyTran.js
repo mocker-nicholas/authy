@@ -1,5 +1,5 @@
 import { React } from "react";
-import classes from "./UiCss/DailyTran.module.css";
+import classes from "./HomeCss/DailyTran.module.css";
 
 const DailyTran = (props) => {
   return (

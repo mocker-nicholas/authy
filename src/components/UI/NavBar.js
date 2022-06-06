@@ -19,7 +19,7 @@ const NavBar = (props) => {
         showNav ? `${classes.navbar} ${classes.extend}` : classes.navbar
       }
     >
-      <div onClick={showNavHandler} className={classes.navlines}>
+      <div className={classes.navlines} onClick={showNavHandler}>
         <div className={classes.navline}></div>
         <div className={classes.navline}></div>
       </div>

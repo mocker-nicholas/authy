@@ -1,7 +1,7 @@
 import { React, useReducer, useEffect } from "react";
 import classes from "./pages-css/Home.module.css";
 import TransGraph from "../components/Home/TransGraph";
-import DailyTran from "../components/UI/DailyTran";
+import DailyTran from "../components/Home/DailyTran";
 import { getDailyTotal, getStats } from "../lib/requests";
 import { last7 } from "../lib/util";
 
@@ -76,6 +76,7 @@ const Home = (props) => {
           weekTotal={state.weekTotal}
         />
       </section>
+      <div className="spacer"></div>
     </main>
   );
 };

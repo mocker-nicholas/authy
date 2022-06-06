@@ -70,3 +70,11 @@ cursor: pointer;
   background-color: var(--sea-blue);
   margin: 0.5rem 0;
 }
+
+/* //////// */
+/* Spacer */
+/* //////// */
+.spacer {
+  width: 100%;
+  height: 40px;
+}

@@ -13,3 +13,11 @@
   margin-top: 25vh;
   margin-bottom: 4rem;
 }
+
+.landing a {
+  color: white;
+}
+
+.landing a:visited {
+  color: white;
+}

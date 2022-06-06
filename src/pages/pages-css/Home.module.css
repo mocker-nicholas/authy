@@ -8,5 +8,7 @@
 }
 
 .graph {
-
+  border: 2px solid var(--orange);
+  padding: 4px;
+  border-radius: 4px;
 }
