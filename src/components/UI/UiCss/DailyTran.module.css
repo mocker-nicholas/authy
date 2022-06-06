@@ -1,0 +1,16 @@
+.summary {
+    color: var(--white);
+    text-align: center;
+}
+
+.total {
+    background-color: var(--dark-blue);
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.total span {
+    background-color: var(--yellow);
+    border-radius: 4px;
+    padding: 0.25rem;
+}
