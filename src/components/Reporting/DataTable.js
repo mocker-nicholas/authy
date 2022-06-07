@@ -1,15 +1,15 @@
-import {React} from "react";
+import { React } from "react";
+import DataRow from "./DataRow";
 
 const DataTable = (props) => {
   let tableContent = <div></div>;
-  if(props.data) {
-    tableContent = props.data.map((data)=> {
-      return <div key={data.transId}>{data.transId}</div>
-    })
+  if (props.data) {
+    tableContent = props.data.map((data) => {
+      return <DataRow key={data.transId} data={data} />;
+    });
   }
 
-  return tableContent
-  
-}
+  return <div>{tableContent}</div>;
+};
 
 export default DataTable;

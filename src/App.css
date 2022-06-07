@@ -61,6 +61,32 @@ cursor: pointer;
   color: inherit;
 }
 
+.btn-dark-orange {
+  background-color: var(--orange);
+  color: var(--white);
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+  transition: 0.2s all;
+  cursor: pointer;
+}
+
+.btn-dark-orange:hover {
+  background-color: var(--o-orange);
+  cursor: pointer;
+}
+
+.btn-dark-orange:active {
+background-color: var(--yellow);
+cursor: pointer;
+}
+
+.btn-dark-orange:visited {
+  color: inherit;
+}
+
 /* //////// */
 /* Elements */
 /* //////// */
