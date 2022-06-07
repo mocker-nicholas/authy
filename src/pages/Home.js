@@ -10,6 +10,7 @@ const initialStatsState = {
   totals: [0, 0, 0, 0, 0, 0, 0],
   weekTotal: "0.00",
   todaysTotal: "0.00",
+  dailyNum: "0",
 };
 
 const statsReducer = (state, action) => {
@@ -32,7 +33,8 @@ const statsReducer = (state, action) => {
   if (action.type === "TODAY") {
     return {
       ...state,
-      todaysTotal: action.val,
+      todaysTotal: action.val.unsettled_total,
+      dailyNum: action.val.totalTrans
     };
   }
 
@@ -45,7 +47,7 @@ const Home = (props) => {
   useEffect(() => {
     const getTotal = async () => {
       const response = await getDailyTotal();
-      dispatch({ type: "TODAY", val: response.unsettled_tota });
+      dispatch({ type: "TODAY", val: response });
     };
 
     const stats = async () => {
@@ -68,12 +70,13 @@ const Home = (props) => {
       </section>
       <section className={classes.summary}>
         <header>
-          <h2>Daily Summary</h2>
+          <h2>Summary</h2>
           <div className="sea-blue-divide"></div>
         </header>
         <DailyTran
           todaysTotal={state.todaysTotal}
           weekTotal={state.weekTotal}
+          todaysNum={state.dailyNum}
         />
       </section>
       <div className="spacer"></div>
