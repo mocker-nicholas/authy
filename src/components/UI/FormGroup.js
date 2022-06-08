@@ -6,7 +6,7 @@ const FormGroup = React.forwardRef((props, ref) => {
       <div>
         <label htmlFor={props.for}>{props.label}</label>
       </div>
-      <div>
+      <div className="w100">
         <input
           id={props.for}
           ref={ref}

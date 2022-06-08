@@ -1,0 +1,36 @@
+.virtualTerminal {
+    color: var(--dark-blue);
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.virtualTerminal form {
+    background-color: var(--white);
+    border: 2px solid var(--dark-blue);
+    padding: 0.5rem;
+    width: 95vw;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.virtualTerminal label {
+    border-bottom: 2px solid var(--yellow);
+}
+
+.virtualTerminal input {
+    width: 100%;
+    border: none;
+    outline: none;
+    border: 2px solid transparent;
+    border-bottom: 1px solid var(--dark-blue);
+    background-color: rgba(238, 238, 238, 0.8);
+    padding: 4px 0px 4px 8px;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}

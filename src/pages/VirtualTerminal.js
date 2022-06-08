@@ -64,21 +64,21 @@ const VirtualTerminal = (props) => {
   };
 
   return (
-    <section id="virtualTerminal">
+    <section id="virtualTerminal" className={classes.virtualTerminal}>
       <form>
         <FormGroup
           for="amount"
-          className=""
+          className="w100"
           label="Amount to Bill"
           onChange={inputChangeHandler}
           onBlur={onBlurHandler}
           value={formState.amount.value}
           errorText={formState.amount.hasError ? formState.amount.error : ""}
         />
-        <div className={classes.names}>
+        <div className={`${classes.names} w100`}>
           <FormGroup
             for="first"
-            className=""
+            className="w100"
             label="First Name"
             onChange={inputChangeHandler}
             value={formState.first.value}
@@ -86,7 +86,7 @@ const VirtualTerminal = (props) => {
           />
           <FormGroup
             for="last"
-            className=""
+            className="w100"
             label="LastName"
             onChange={inputChangeHandler}
             value={formState.last.value}
@@ -95,7 +95,7 @@ const VirtualTerminal = (props) => {
         </div>
         <FormGroup
           for="company"
-          className=""
+          className="w100"
           label="Company"
           onChange={inputChangeHandler}
           value={formState.company.value}
@@ -103,16 +103,16 @@ const VirtualTerminal = (props) => {
         />
         <FormGroup
           for="street"
-          className=""
+          className="w100"
           label="Street Address"
           onChange={inputChangeHandler}
           value={formState.street.value}
           errorText={formState.street.hasError ? formState.street.error : ""}
         />
-        <div className={classes.cityState}>
+        <div className={`${classes.cityState} w100`}>
           <FormGroup
             for="city"
-            className=""
+            className="w100"
             label="City"
             onChange={inputChangeHandler}
             value={formState.city.value}
@@ -120,17 +120,17 @@ const VirtualTerminal = (props) => {
           />
           <FormGroup
             for="state"
-            className=""
+            className="w100"
             label="State"
             onChange={inputChangeHandler}
             value={formState.state.value}
             errorText={formState.state.hasError ? formState.state.error : ""}
           />
         </div>
-        <div className={classes.zipCountry}>
+        <div className={`${classes.zipCountry} w100`}>
           <FormGroup
             for="zip"
-            className=""
+            className="w100"
             label="Zipcode"
             onChange={inputChangeHandler}
             value={formState.zip.value}
@@ -138,7 +138,7 @@ const VirtualTerminal = (props) => {
           />
           <FormGroup
             for="country"
-            className=""
+            className="w100"
             label="Country"
             onChange={inputChangeHandler}
             value={formState.country.value}
@@ -151,10 +151,12 @@ const VirtualTerminal = (props) => {
           type="button"
           onClick={submitHandler}
           disabled={!formState.isBodyValid}
+          className="btn-dark-orange"
         >
           Submit
         </button>
       </form>
+      <div className="spacer"></div>
     </section>
   );
 };
