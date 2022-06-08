@@ -7,7 +7,7 @@ export const request = axios.create({
   baseURL: baseUrl,
 });
 
-export const searchUnsettled = async (body) => {
+export const searchTransactions = async (body) => {
   const response = await request.post("/transaction/search", {
     ...body,
   });

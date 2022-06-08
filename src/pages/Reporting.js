@@ -1,6 +1,6 @@
-import { React, useEffect, useState } from "react";
-import { searchUnsettled } from "../lib/requests";
-import { nextPage, prevPage, offsetReset } from "../store/search-body-slice";
+import { React, useEffect, useState, useRef } from "react";
+import { searchTransactions } from "../lib/requests";
+import { nextPage, prevPage, bodyUpdate } from "../store/search-body-slice";
 import { useSelector, useDispatch } from "react-redux";
 import DataTable from "../components/Reporting/DataTable";
 import classes from "./pages-css/Reporting.module.css";
@@ -8,16 +8,36 @@ import classes from "./pages-css/Reporting.module.css";
 const Reporting = () => {
   const searchBody = useSelector((state) => state.searchBody);
   const [tranData, setTranData] = useState();
-  const dispatch = useDispatch();
-  console.log(searchBody);
+  const [formReady, setFormReady] = useState({
+    date: false,
+    status: false,
+  });
 
-  useEffect(() => {
-    const getTrans = async () => {
-      const response = await searchUnsettled(searchBody);
-      setTranData(response);
-    };
-    getTrans();
-  }, [searchBody]);
+  const dispatch = useDispatch();
+  const firstDate = useRef(null);
+  const status = useRef("unsettled");
+
+  const submitFormHandler = () => {
+    dispatch(
+      bodyUpdate({
+        status: status.current.value,
+        firstDate: firstDate.current.value,
+        lastDate: firstDate.current.value,
+      })
+    );
+  };
+
+  const dateChangeHandler = () => {
+    setFormReady((state) => {
+      return { ...state, date: true };
+    });
+  };
+
+  const statusChangeHandler = () => {
+    setFormReady((state) => {
+      return { ...state, status: true };
+    });
+  };
 
   const nextPageHandler = () => {
     dispatch(nextPage());
@@ -27,42 +47,52 @@ const Reporting = () => {
     dispatch(prevPage());
   };
 
+  useEffect(() => {
+    const getTrans = async () => {
+      const response = await searchTransactions(searchBody);
+      setTranData(response);
+    };
+    getTrans();
+  }, [searchBody]);
   return (
     <section id="reporting" className={classes.reporting}>
       <form>
-        <div className={classes.dates}>
+        <div className={classes.inputs}>
           <div>
             <div>
-              <label htmlFor="startDate">Start Date</label>
+              <label htmlFor="startDate">Date</label>
             </div>
-            <div>
-              <input id="startDate" type="date"></input>
-            </div>
+            <input
+              id="startDate"
+              type="date"
+              ref={firstDate}
+              onChange={dateChangeHandler}
+            ></input>
           </div>
-          <div>
-            <div>
-              <label htmlFor="endDate">End Date</label>
-            </div>
-            <div>
-              <input id="endDate" type="date"></input>
-            </div>
-          </div>
-        </div>
-        <div className={classes.select}>
           <div>
             <div>
               <label htmlFor="status">Status</label>
             </div>
-            <div>
-              <select id="status" defaultValue="unsettled">
-                <option value="unsettled">Unsettled</option>
-                <option value="settled">Settled</option>
-              </select>
-            </div>
+            <select
+              id="status"
+              defaultValue="unsettled"
+              ref={status}
+              onChange={statusChangeHandler}
+            >
+              <option value="unsettled">Unsettled</option>
+              <option value="settled">Settled</option>
+            </select>
           </div>
-          <div className={classes.button}>
-            <button className="btn-dark-orange">Search</button>
-          </div>
+        </div>
+        <div className={classes.button}>
+          <button
+            className="btn-dark-orange"
+            type="button"
+            onClick={submitFormHandler}
+            disabled={!formReady.date || !formReady.status}
+          >
+            Search
+          </button>
         </div>
       </form>
       <DataTable data={tranData} />
@@ -71,15 +101,19 @@ const Reporting = () => {
           type="button"
           className="btn-dark-orange"
           onClick={prevPageHandler}
+          disabled={searchBody.offset === 1 && true}
         >
-          Prev
+          {`< Page ${searchBody.offset - 1} `}
         </button>
         <button
           type="button"
           className="btn-dark-orange"
           onClick={nextPageHandler}
+          disabled={
+            tranData !== undefined && tranData.length !== 20 ? true : false
+          }
         >
-          Next
+          {`Page ${searchBody.offset + 1} >`}
         </button>
       </div>
       <div className="spacer"></div>

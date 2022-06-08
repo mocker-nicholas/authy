@@ -13,6 +13,16 @@
   padding: 0.5rem;
 }
 
+.reporting .inputs {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+}
+
+.input {
+  border: 1px solid green;
+}
+
 .reporting label {
   border-bottom: 2px solid var(--yellow);
 }
@@ -26,20 +36,7 @@
   border-radius: 4px;
   padding: 0.25rem;
   margin-top: 4px;
-}
-
-.dates {
-  color: var(--white);
-  width: 100%;
-  display: flex;
-  gap: 1rem;
-}
-
-
-.select {
-  display: flex;
-  gap: 1rem;
-  width: 100%;
+  width: calc(90vw / 2) 
 }
 
 .button {
@@ -47,8 +44,8 @@
 }
 
 .button button {
-  margin-top: 1rem;
-  width: 90%;
+  margin-top: 0.5rem;
+  width: 100%;
 }
 
 .pageButtons {

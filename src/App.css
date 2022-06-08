@@ -61,6 +61,11 @@ cursor: pointer;
   color: inherit;
 }
 
+.btn-dark-blue:disabled {
+  cursor: not-allowed;
+  background-color: var(--o-dark-blue);
+}
+
 .btn-dark-orange {
   background-color: var(--orange);
   color: var(--white);
@@ -85,6 +90,11 @@ cursor: pointer;
 
 .btn-dark-orange:visited {
   color: inherit;
+}
+
+.btn-dark-orange:disabled {
+  cursor: not-allowed;
+  background-color: var(--o-orange);
 }
 
 /* //////// */
