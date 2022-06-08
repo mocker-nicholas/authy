@@ -17,7 +17,16 @@ const Reporting = () => {
       setTranData(response);
     };
     getTrans();
-  }, []);
+  }, [searchBody]);
+
+  const nextPageHandler = () => {
+    dispatch(nextPage());
+  };
+
+  const prevPageHandler = () => {
+    dispatch(prevPage());
+  };
+
   return (
     <section id="reporting" className={classes.reporting}>
       <form>
@@ -56,10 +65,22 @@ const Reporting = () => {
           </div>
         </div>
       </form>
-        <DataTable data={tranData} />
-      <div>
-        <button type="button">Prev</button>
-        <button type="button">Next</button>
+      <DataTable data={tranData} />
+      <div className={classes.pageButtons}>
+        <button
+          type="button"
+          className="btn-dark-orange"
+          onClick={prevPageHandler}
+        >
+          Prev
+        </button>
+        <button
+          type="button"
+          className="btn-dark-orange"
+          onClick={nextPageHandler}
+        >
+          Next
+        </button>
       </div>
       <div className="spacer"></div>
     </section>

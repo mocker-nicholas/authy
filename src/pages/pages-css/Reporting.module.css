@@ -50,3 +50,9 @@
   margin-top: 1rem;
   width: 90%;
 }
+
+.pageButtons {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem;
+}

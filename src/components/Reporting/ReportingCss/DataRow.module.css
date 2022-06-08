@@ -5,3 +5,17 @@
 .row td {
     padding-left: 0.25rem;
 }
+
+@media screen and (max-width: 800px) {
+    .row {
+        font-size: 0.75rem;
+    }
+}   
+
+@media screen and (max-width: 800px) {
+
+}
+
+@media screen and (max-width: 800px) {
+
+}
