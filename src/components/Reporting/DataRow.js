@@ -2,17 +2,26 @@ import React from "react";
 import classes from "./ReportingCss/DataRow.module.css";
 
 const DataRow = (props) => {
-  const { transId } = props.data;
+  const { transId, submitTimeUTC,  firstName, lastName, settleAmount, transactionStatus} = props.data;
+  
+  const date = new Date(submitTimeUTC).toLocaleString()
 
   return (
-    <div className={classes.row} id={transId}>
-      <div></div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
-      <div>6</div>
-    </div>
+    <tr className={classes.row} id={transId}>
+      <td className={classes.date}>{date}</td>
+      <td>${settleAmount}</td>
+      <td className={
+                (transactionStatus === "Refund Pending" && "orange") ||
+                (transactionStatus === "Refunded" && "orange") ||
+                (transactionStatus === "Voided" && "red") ||
+                (transactionStatus === "Declined" && "red") ||
+                (transactionStatus === "Settled" && "green") ||
+                (transactionStatus === "Pending Settlement" && "")
+              }>{transactionStatus}</td>
+      <td>{`${firstName} ${lastName}`}</td>
+      <td>i</td>
+      <td>{}</td>
+    </tr>
   );
 };
 

@@ -88,6 +88,54 @@ cursor: pointer;
 }
 
 /* //////// */
+/* Colors */
+/* //////// */
+.orange {
+  color: var(--orange);
+}
+
+.bold-orange {
+  color: var(--orange);
+  font-weight: bold;
+}
+
+.yellow {
+  color: var(--yellow);
+}
+
+.bold-yellow {
+  color: var(--yellow);
+  font-weight: bold;
+}
+
+.green {
+  color: var(--success-bg);
+}
+
+.bold-green {
+  color: var(--success-bg);
+  font-weight: bold;
+}
+
+.sea-blue {
+  color: var(--sea-blue);
+}
+
+.bold-sea-blue {
+  color: var(--sea-blue);
+  font-weight: bold;
+}
+
+.red {
+  color: red;
+}
+
+.bold-red {
+  color: red;
+  font-weight: bold;
+}
+
+/* //////// */
 /* Elements */
 /* //////// */
 .sea-blue-divide {

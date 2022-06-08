@@ -56,19 +56,10 @@ const Reporting = () => {
           </div>
         </div>
       </form>
-      <div className={classes.wrapper}>
-        <header>
-          <span>Date</span>
-          <span>Amount</span>
-          <span>Status</span>
-          <span>Name</span>
-          <span>Last 4</span>
-        </header>
         <DataTable data={tranData} />
-      </div>
       <div>
-        <button>Prev</button>
-        <button>Next</button>
+        <button type="button">Prev</button>
+        <button type="button">Next</button>
       </div>
       <div className="spacer"></div>
     </section>

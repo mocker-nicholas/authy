@@ -1,0 +1,15 @@
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table thead {
+  background-color: var(--sea-blue);
+}
+
+.table th {
+  background-color: var(--sea-blue);
+  color: var(--white);
+  text-align: start;
+  padding: 0.5rem 0.25rem;
+}
