@@ -3,7 +3,23 @@ import classes from "./CustomersCss/CustomerRow.module.css";
 
 const CustomerRow = (props) => {
   const profile = props.data;
-  return <div>{profile.customerProfileId}</div>;
+  return (
+    <div className={classes.customerRow}>
+      <div className={classes.item}>
+        {profile.paymentProfiles[0].billTo
+          ? `${profile.paymentProfiles[0].billTo.firstName} ${profile.paymentProfiles[0].billTo.lastName}`
+          : "-"}
+      </div>
+      <div className={classes.item}>
+        {profile.paymentProfiles[0].payment
+          ? `${profile.paymentProfiles[0].payment.creditCard.cardNumber}`
+          : "-"}
+      </div>
+      <div className={classes.item}>
+        <div>{profile.customerProfileId}</div>
+      </div>
+    </div>
+  );
 };
 
 export default CustomerRow;
