@@ -1,16 +1,30 @@
-import React from "react";
-import { createCustomer } from "../lib/requests";
+import { React, useEffect, useState } from "react";
+import { getCustomers } from "../lib/requests";
+import CustomerRow from "../components/Customers/CustomerRow";
+import classes from "./pages-css/Customers.module.css";
 
 const Customers = () => {
-  const createHandler = async () => {
-    const response = await createCustomer({ message: "I made it!" });
-    console.log(response);
-  };
+  const [customerList, setCustomerList] = useState(null);
+  console.log(customerList);
+
+  useEffect(() => {
+    const getAllCustomers = async () => {
+      const customers = await getCustomers();
+      setCustomerList(customers.data);
+    };
+    getAllCustomers();
+  }, []);
   return (
     <section id="customers">
-      <div>
-        <button onClick={createHandler}>Create</button>
-      </div>
+      {customerList &&
+        customerList.map((customer) => {
+          return (
+            <CustomerRow
+              key={customer.profile.customerProfileId}
+              data={customer.profile}
+            />
+          );
+        })}
     </section>
   );
 };

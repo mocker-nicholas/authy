@@ -41,3 +41,8 @@ export const createCustomer = async (body) => {
   const response = await request.post("/customer/create", { ...body });
   return response;
 };
+
+export const getCustomers = async (body) => {
+  const response = await request.get("/customer");
+  return response;
+};
