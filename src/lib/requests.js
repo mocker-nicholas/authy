@@ -26,3 +26,8 @@ export const getDailyTotal = async () => {
   const data = response.data;
   return data;
 };
+
+export const getHostedToken = async (body) => {
+  const response = await request.post("/vt/hosted", {...body})
+  console.log(response)
+}

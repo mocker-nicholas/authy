@@ -2,6 +2,7 @@ import { React, useReducer } from "react";
 import classes from "./pages-css/VirtualTerminal.module.css";
 import FormGroup from "../components/UI/FormGroup";
 import { onInputChange } from "../lib/vTValidate";
+import { getHostedToken } from "../lib/requests";
 
 const defaultState = {
   first: { value: "", touched: false, hasError: true, error: "" },
@@ -42,6 +43,7 @@ const VirtualTerminal = (props) => {
   console.log(formState.isBodyValid);
   // Reach out to authnet to get hosted page
   const submitHandler = async (e) => {
+    const response = await getHostedToken(formState);
     dispatchForm({ type: "RESET" });
   };
 
@@ -65,10 +67,16 @@ const VirtualTerminal = (props) => {
 
   return (
     <section id="virtualTerminal" className={classes.virtualTerminal}>
+      <header>
+        <button type="button" className="btn-dark-orange">Generate Random Transaction</button>
+        <div className="orange-divide"></div>
+        <p>Or, fill out the form below to create your own!</p>
+        <div className="orange-divide"></div>
+      </header>
       <form>
         <FormGroup
           for="amount"
-          className="w100"
+          className={formState.amount.hasError && formState.amount.touched ? `w100 red` : "w100"}
           label="Amount to Bill"
           onChange={inputChangeHandler}
           onBlur={onBlurHandler}
@@ -78,7 +86,7 @@ const VirtualTerminal = (props) => {
         <div className={`${classes.names} w100`}>
           <FormGroup
             for="first"
-            className="w100"
+            className={formState.first.hasError && formState.first.touched ? `w100 red` : "w100"}
             label="First Name"
             onChange={inputChangeHandler}
             value={formState.first.value}
@@ -86,8 +94,8 @@ const VirtualTerminal = (props) => {
           />
           <FormGroup
             for="last"
-            className="w100"
-            label="LastName"
+            className={formState.last.hasError && formState.last.touched ? `w100 red` : "w100"}
+            label="Last Name"
             onChange={inputChangeHandler}
             value={formState.last.value}
             errorText={formState.last.hasError ? formState.last.error : ""}
@@ -95,7 +103,7 @@ const VirtualTerminal = (props) => {
         </div>
         <FormGroup
           for="company"
-          className="w100"
+          className={formState.company.hasError && formState.company.touched ? `w100 red` : "w100"}
           label="Company"
           onChange={inputChangeHandler}
           value={formState.company.value}
@@ -103,7 +111,7 @@ const VirtualTerminal = (props) => {
         />
         <FormGroup
           for="street"
-          className="w100"
+          className={formState.street.hasError && formState.street.touched ? `w100 red` : "w100"}
           label="Street Address"
           onChange={inputChangeHandler}
           value={formState.street.value}
@@ -112,7 +120,7 @@ const VirtualTerminal = (props) => {
         <div className={`${classes.cityState} w100`}>
           <FormGroup
             for="city"
-            className="w100"
+            className={formState.city.hasError && formState.city.touched ? `w100 red` : "w100"}
             label="City"
             onChange={inputChangeHandler}
             value={formState.city.value}
@@ -120,7 +128,7 @@ const VirtualTerminal = (props) => {
           />
           <FormGroup
             for="state"
-            className="w100"
+            className={formState.state.hasError && formState.state.touched ? `w100 red` : "w100"}
             label="State"
             onChange={inputChangeHandler}
             value={formState.state.value}
@@ -130,7 +138,7 @@ const VirtualTerminal = (props) => {
         <div className={`${classes.zipCountry} w100`}>
           <FormGroup
             for="zip"
-            className="w100"
+            className={formState.zip.hasError && formState.zip.touched ? `w100 red` : "w100"}
             label="Zipcode"
             onChange={inputChangeHandler}
             value={formState.zip.value}
@@ -145,6 +153,7 @@ const VirtualTerminal = (props) => {
             errorText={
               formState.country.hasError ? formState.country.error : ""
             }
+            disabled={true}
           />
         </div>
         <button
