@@ -1,7 +1,18 @@
 import React from "react";
+import { createCustomer } from "../lib/requests";
 
 const Customers = () => {
-  return <div>You in Customers!</div>
-}
+  const createHandler = async () => {
+    const response = await createCustomer({ message: "I made it!" });
+    console.log(response);
+  };
+  return (
+    <section id="customers">
+      <div>
+        <button onClick={createHandler}>Create</button>
+      </div>
+    </section>
+  );
+};
 
 export default Customers;

@@ -2,7 +2,7 @@ import { React, useReducer, useState } from "react";
 import classes from "./pages-css/VirtualTerminal.module.css";
 import FormGroup from "../components/UI/FormGroup";
 import { onInputChange } from "../lib/vTValidate";
-import { getHostedToken } from "../lib/requests";
+import { getHostedToken, generateTransaction } from "../lib/requests";
 
 const defaultState = {
   first: { value: "", touched: false, hasError: true, error: "" },
@@ -41,6 +41,11 @@ const formReducer = (state, action) => {
 const VirtualTerminal = (props) => {
   const [formState, dispatchForm] = useReducer(formReducer, defaultState);
   const [token, setToken] = useState(null);
+
+  const generateHandler = async () => {
+    const response = await generateTransaction();
+    console.log(response.data);
+  };
   // Reach out to authnet to get hosted page
   const submitHandler = async (e) => {
     const response = await getHostedToken(formState);
@@ -74,7 +79,11 @@ const VirtualTerminal = (props) => {
   return (
     <section id="virtualTerminal" className={classes.virtualTerminal}>
       <header>
-        <button type="button" className="btn-dark-orange">
+        <button
+          type="button"
+          className="btn-dark-orange"
+          onClick={generateHandler}
+        >
           Generate Random Transaction
         </button>
         <div className="orange-divide"></div>

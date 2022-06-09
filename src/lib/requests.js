@@ -28,6 +28,16 @@ export const getDailyTotal = async () => {
 };
 
 export const getHostedToken = async (body) => {
-  const response = await request.post("/vt/hosted", {...body})
+  const response = await request.post("/vt/hosted", { ...body });
   return response;
-}
+};
+
+export const generateTransaction = async () => {
+  const response = await request.post("/transaction/generate");
+  return response;
+};
+
+export const createCustomer = async (body) => {
+  const response = await request.post("/customer/create", { ...body });
+  return response;
+};
