@@ -44,7 +44,7 @@ const VirtualTerminal = (props) => {
   // Reach out to authnet to get hosted page
   const submitHandler = async (e) => {
     const response = await getHostedToken(formState);
-    setToken(response.data.token)
+    setToken(response.data.token);
     dispatchForm({ type: "RESET" });
   };
 
@@ -65,119 +65,170 @@ const VirtualTerminal = (props) => {
     );
   };
 
+  const resetToken = () => {
+    setTimeout(() => {
+      setToken(null);
+    }, 3000);
+  };
+
   return (
     <section id="virtualTerminal" className={classes.virtualTerminal}>
       <header>
-        <button type="button" className="btn-dark-orange">Generate Random Transaction</button>
+        <button type="button" className="btn-dark-orange">
+          Generate Random Transaction
+        </button>
         <div className="orange-divide"></div>
         <p>Or, fill out the form below to create your own!</p>
         <div className="orange-divide"></div>
       </header>
-      {!token && <form>
-        <FormGroup
-          for="amount"
-          className={formState.amount.hasError && formState.amount.touched ? `w100 red` : "w100"}
-          label="Amount to Bill"
-          onChange={inputChangeHandler}
-          onBlur={onBlurHandler}
-          value={formState.amount.value}
-          errorText={formState.amount.hasError ? formState.amount.error : ""}
-        />
-        <div className={`${classes.names} w100`}>
+      {!token && (
+        <form>
           <FormGroup
-            for="first"
-            className={formState.first.hasError && formState.first.touched ? `w100 red` : "w100"}
-            label="First Name"
-            onChange={inputChangeHandler}
-            value={formState.first.value}
-            errorText={formState.first.hasError ? formState.first.error : ""}
-          />
-          <FormGroup
-            for="last"
-            className={formState.last.hasError && formState.last.touched ? `w100 red` : "w100"}
-            label="Last Name"
-            onChange={inputChangeHandler}
-            value={formState.last.value}
-            errorText={formState.last.hasError ? formState.last.error : ""}
-          />
-        </div>
-        <FormGroup
-          for="company"
-          className={formState.company.hasError && formState.company.touched ? `w100 red` : "w100"}
-          label="Company"
-          onChange={inputChangeHandler}
-          value={formState.company.value}
-          errorText={formState.company.hasError ? formState.company.error : ""}
-        />
-        <FormGroup
-          for="street"
-          className={formState.street.hasError && formState.street.touched ? `w100 red` : "w100"}
-          label="Street Address"
-          onChange={inputChangeHandler}
-          value={formState.street.value}
-          errorText={formState.street.hasError ? formState.street.error : ""}
-        />
-        <div className={`${classes.cityState} w100`}>
-          <FormGroup
-            for="city"
-            className={formState.city.hasError && formState.city.touched ? `w100 red` : "w100"}
-            label="City"
-            onChange={inputChangeHandler}
-            value={formState.city.value}
-            errorText={formState.city.hasError ? formState.city.error : ""}
-          />
-          <FormGroup
-            for="state"
-            className={formState.state.hasError && formState.state.touched ? `w100 red` : "w100"}
-            label="State"
-            onChange={inputChangeHandler}
-            value={formState.state.value}
-            errorText={formState.state.hasError ? formState.state.error : ""}
-          />
-        </div>
-        <div className={`${classes.zipCountry} w100`}>
-          <FormGroup
-            for="zip"
-            className={formState.zip.hasError && formState.zip.touched ? `w100 red` : "w100"}
-            label="Zipcode"
-            onChange={inputChangeHandler}
-            value={formState.zip.value}
-            errorText={formState.zip.hasError ? formState.zip.error : ""}
-          />
-          <FormGroup
-            for="country"
-            className="w100"
-            label="Country"
-            onChange={inputChangeHandler}
-            value={formState.country.value}
-            errorText={
-              formState.country.hasError ? formState.country.error : ""
+            for="amount"
+            className={
+              formState.amount.hasError && formState.amount.touched
+                ? `w100 red`
+                : "w100"
             }
-            disabled={true}
+            label="Amount to Bill"
+            onChange={inputChangeHandler}
+            onBlur={onBlurHandler}
+            value={formState.amount.value}
+            errorText={formState.amount.hasError ? formState.amount.error : ""}
           />
-        </div>
-        <button
-          type="button"
-          onClick={submitHandler}
-          disabled={!formState.isBodyValid}
-          className="btn-dark-orange"
+          <div className={`${classes.names} w100`}>
+            <FormGroup
+              for="first"
+              className={
+                formState.first.hasError && formState.first.touched
+                  ? `w100 red`
+                  : "w100"
+              }
+              label="First Name"
+              onChange={inputChangeHandler}
+              value={formState.first.value}
+              errorText={formState.first.hasError ? formState.first.error : ""}
+            />
+            <FormGroup
+              for="last"
+              className={
+                formState.last.hasError && formState.last.touched
+                  ? `w100 red`
+                  : "w100"
+              }
+              label="Last Name"
+              onChange={inputChangeHandler}
+              value={formState.last.value}
+              errorText={formState.last.hasError ? formState.last.error : ""}
+            />
+          </div>
+          <FormGroup
+            for="company"
+            className={
+              formState.company.hasError && formState.company.touched
+                ? `w100 red`
+                : "w100"
+            }
+            label="Company"
+            onChange={inputChangeHandler}
+            value={formState.company.value}
+            errorText={
+              formState.company.hasError ? formState.company.error : ""
+            }
+          />
+          <FormGroup
+            for="street"
+            className={
+              formState.street.hasError && formState.street.touched
+                ? `w100 red`
+                : "w100"
+            }
+            label="Street Address"
+            onChange={inputChangeHandler}
+            value={formState.street.value}
+            errorText={formState.street.hasError ? formState.street.error : ""}
+          />
+          <div className={`${classes.cityState} w100`}>
+            <FormGroup
+              for="city"
+              className={
+                formState.city.hasError && formState.city.touched
+                  ? `w100 red`
+                  : "w100"
+              }
+              label="City"
+              onChange={inputChangeHandler}
+              value={formState.city.value}
+              errorText={formState.city.hasError ? formState.city.error : ""}
+            />
+            <FormGroup
+              for="state"
+              className={
+                formState.state.hasError && formState.state.touched
+                  ? `w100 red`
+                  : "w100"
+              }
+              label="State"
+              onChange={inputChangeHandler}
+              value={formState.state.value}
+              errorText={formState.state.hasError ? formState.state.error : ""}
+            />
+          </div>
+          <div className={`${classes.zipCountry} w100`}>
+            <FormGroup
+              for="zip"
+              className={
+                formState.zip.hasError && formState.zip.touched
+                  ? `w100 red`
+                  : "w100"
+              }
+              label="Zipcode"
+              onChange={inputChangeHandler}
+              value={formState.zip.value}
+              errorText={formState.zip.hasError ? formState.zip.error : ""}
+            />
+            <FormGroup
+              for="country"
+              className="w100"
+              label="Country"
+              onChange={inputChangeHandler}
+              value={formState.country.value}
+              errorText={
+                formState.country.hasError ? formState.country.error : ""
+              }
+              disabled={true}
+            />
+          </div>
+          <button
+            type="button"
+            onClick={submitHandler}
+            disabled={!formState.isBodyValid}
+            className="btn-dark-orange"
+          >
+            Submit
+          </button>
+        </form>
+      )}
+      {token && (
+        <form
+          id="send_hptoken"
+          action="https://test.authorize.net/payment/payment"
+          method="post"
+          target="load_payment"
         >
-          Submit
-        </button>
-      </form>}
-      {token && <>
-      <div>
-        Open Authorize.net in an iframe to complete transaction
-        <button id="btnOpenAuthorizeNetIFrame">Show Payment Form</button>
-      </div>
-      <div id="iframe_holder" className="center-block">
-        <iframe id="add_payment" className="embed-responsive-item panel" name="add_payment" width="100%" frameBorder="0" scrolling="no">
-        </iframe>
-      </div>
-      <form id="send_token" action="" method="post" target="add_payment" >
-        <input type="hidden" name="token" value={token} />
-      </form>
-  </>}
+          <input type="hidden" name="token" value={token} />
+          <div>
+            <p>
+              Everything looks good! Please proceed to the Authorize.net secure
+              payments page below to complete your payment.
+            </p>
+          </div>
+          <button className="btn-dark-orange" onClick={resetToken}>
+            {" "}
+            Proceed To Payment
+          </button>
+        </form>
+      )}
       <div className="spacer"></div>
     </section>
   );
