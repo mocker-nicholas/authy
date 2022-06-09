@@ -1,4 +1,4 @@
-import { React, useReducer } from "react";
+import { React, useReducer, useState } from "react";
 import classes from "./pages-css/VirtualTerminal.module.css";
 import FormGroup from "../components/UI/FormGroup";
 import { onInputChange } from "../lib/vTValidate";
@@ -40,16 +40,16 @@ const formReducer = (state, action) => {
 
 const VirtualTerminal = (props) => {
   const [formState, dispatchForm] = useReducer(formReducer, defaultState);
-  console.log(formState.isBodyValid);
+  const [token, setToken] = useState(null);
   // Reach out to authnet to get hosted page
   const submitHandler = async (e) => {
     const response = await getHostedToken(formState);
+    setToken(response.data.token)
     dispatchForm({ type: "RESET" });
   };
 
   // Get new reducer state values and validate values, display errors
   const inputChangeHandler = (e) => {
-    console.log(e.target.id);
     onInputChange(e.target.id, e.target.value, dispatchForm, formState);
   };
 
@@ -73,7 +73,7 @@ const VirtualTerminal = (props) => {
         <p>Or, fill out the form below to create your own!</p>
         <div className="orange-divide"></div>
       </header>
-      <form>
+      {!token && <form>
         <FormGroup
           for="amount"
           className={formState.amount.hasError && formState.amount.touched ? `w100 red` : "w100"}
@@ -164,7 +164,20 @@ const VirtualTerminal = (props) => {
         >
           Submit
         </button>
+      </form>}
+      {token && <>
+      <div>
+        Open Authorize.net in an iframe to complete transaction
+        <button id="btnOpenAuthorizeNetIFrame">Show Payment Form</button>
+      </div>
+      <div id="iframe_holder" className="center-block">
+        <iframe id="add_payment" className="embed-responsive-item panel" name="add_payment" width="100%" frameBorder="0" scrolling="no">
+        </iframe>
+      </div>
+      <form id="send_token" action="" method="post" target="add_payment" >
+        <input type="hidden" name="token" value={token} />
       </form>
+  </>}
       <div className="spacer"></div>
     </section>
   );
