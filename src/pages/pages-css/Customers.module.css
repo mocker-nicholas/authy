@@ -1,3 +1,7 @@
+.customers {
+    color: var(--dark-blue);
+}
+
 .customers header {
     background-color: var(--dark-blue);
     color: var(--white);
@@ -17,10 +21,19 @@
     width: 100%;
 }
 
+.labels {
+    background-color: var(--sea-blue);
+    color: var(--white);
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .customerTable {
     margin: 0 0.5rem;
     max-height: 65vh;
+    
     border: 2px solid var(--dark-blue);
     border-radius: 4px;
-    overflow-x: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }

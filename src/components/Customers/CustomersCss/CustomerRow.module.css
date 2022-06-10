@@ -1,7 +1,11 @@
 .customerRow {
     display: flex;
-    gap: 0.5rem;
     font-size: 0.75rem;
     border-bottom: 1px solid var(--yellow);
-    padding: 0.5rem;
+}
+
+.item {
+    padding: 1rem 0.5rem;;
+    border-right: 1px solid var(--dark-blue);
+    width: 33.3%;
 }

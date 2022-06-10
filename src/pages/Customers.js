@@ -21,7 +21,7 @@ const Customers = () => {
         <button className="btn-dark-orange">Create</button>
       </header>
       <div id="customer-table" className={classes.customerTable}>
-        <div>
+        <div className={classes.labels}>
           <div>Name</div>
           <div>Payment Method</div>
           <div>Info</div>
