@@ -5,7 +5,6 @@ import classes from "./pages-css/Customers.module.css";
 
 const Customers = () => {
   const [customerList, setCustomerList] = useState(null);
-  console.log(customerList);
 
   useEffect(() => {
     const getAllCustomers = async () => {
