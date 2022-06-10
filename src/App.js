@@ -7,6 +7,7 @@ import Reporting from "./pages/Reporting";
 import VirtualTerminal from "./pages/VirtualTerminal";
 import Invoicing from "./pages/Invoicing";
 import Customers from "./pages/Customers";
+import CustomerDetail from "./components/Customers/CustomerDetail";
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         <Route path="/home" element={<Home />}></Route>
         <Route path="/vt" element={<VirtualTerminal />}></Route>
         <Route path="/customers" element={<Customers />}></Route>
+        <Route path="/customers/:customerId" element={<CustomerDetail />}>
+          {" "}
+        </Route>
         <Route path="/reporting" element={<Reporting />}></Route>
         <Route path="/invoicing" element={<Invoicing />}></Route>
       </Routes>

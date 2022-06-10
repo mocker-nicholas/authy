@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./CustomersCss/CustomerRow.module.css";
+import { Link } from "react-router-dom";
 
 const CustomerRow = (props) => {
   const profile = props.data;
@@ -16,7 +17,9 @@ const CustomerRow = (props) => {
           : "-"}
       </div>
       <div className={classes.item}>
-        <div>{profile.customerProfileId}</div>
+        <Link className={classes.detail} to={`${profile.customerProfileId}`}>
+          {profile.customerProfileId}
+        </Link>
       </div>
     </div>
   );

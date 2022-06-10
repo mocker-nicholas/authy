@@ -7,7 +7,7 @@ const Invoicing = () => {
     <section id="invoicing" className={classes.invoicing}>
       <h2>Coming Soon!</h2>
       <div className={classes.container}>
-        <img src={construction}></img>
+        <img alt="This page is under construction" src={construction}></img>
       </div>
       <p>Authy Invoicing is under construction and will up soon.</p>
       <p>Please check back periodically for updates!</p>

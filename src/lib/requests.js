@@ -46,3 +46,8 @@ export const getCustomers = async (body) => {
   const response = await request.get("/customer");
   return response;
 };
+
+export const getACustomer = async (id) => {
+  const response = await request.get(`/customer/${id}`);
+  return response;
+};

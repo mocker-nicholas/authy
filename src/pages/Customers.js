@@ -24,7 +24,7 @@ const Customers = () => {
         <div className={classes.labels}>
           <div>Name</div>
           <div>Payment Method</div>
-          <div>Info</div>
+          <div>Customer Id</div>
         </div>
         {customerList &&
           customerList.map((customer) => {

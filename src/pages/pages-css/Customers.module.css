@@ -31,7 +31,8 @@
 .customerTable {
     margin: 0 0.5rem;
     max-height: 65vh;
-    
+    min-width: 90vw;
+    min-height: 40vh;
     border: 2px solid var(--dark-blue);
     border-radius: 4px;
     overflow-x: hidden;

@@ -9,3 +9,23 @@
     border-right: 1px solid var(--dark-blue);
     width: 33.3%;
 }
+
+.detail {
+    color: var(--orange);
+    transition: 0.2s all;
+    text-decoration: underline;
+}
+
+.detail:hover {
+    color: var(--o-orange);
+    transform: scale(1.2);
+}
+
+.detail:active {
+    color: var(--o-orange);
+    transform: scale(1.2);
+}
+
+.detail:visited {
+    color: var(--orange)
+}
