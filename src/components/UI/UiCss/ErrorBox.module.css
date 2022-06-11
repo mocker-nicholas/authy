@@ -1,0 +1,26 @@
+.errorBox {
+    border: 2px solid red;
+    color: darkred;
+    font-weight: bold;
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-top: 25vh;
+    min-width: 80vw;
+    max-width: 600px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.errorBox header {
+    background-color: red;
+    color: var(--white);
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.button {
+    margin-bottom: 1rem;
+    color: var(--white);
+}

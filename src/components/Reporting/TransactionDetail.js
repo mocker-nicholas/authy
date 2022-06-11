@@ -4,27 +4,35 @@ import { useParams } from "react-router-dom";
 import { getTransactionById } from "../../lib/requests";
 import classes from "./ReportingCss/TransactionDetail.module.css";
 import Loader from "../UI/Loader";
+import ErrorBox from "../UI/ErrorBox";
 
 const TransactionDetail = (props) => {
   const [trans, setTrans] = useState(null);
   const [loader, setLoader] = useState(false);
+  const [error, setError] = useState(false);
   const params = useParams();
 
   useEffect(() => {
     const getTranData = async (id) => {
       setLoader(true);
       const response = await getTransactionById(id);
-      setTrans(response.data);
-      setLoader(false);
+      if (response.data.error) {
+        setLoader(false);
+        console.log("here");
+        setError({ message: response.data.error });
+      } else {
+        setTrans(response.data);
+        setLoader(false);
+      }
     };
 
     getTranData(params.transactionId);
   }, [params]);
 
-  console.log(trans);
   return (
     <section id="transaction-detail" className={classes.detail}>
       {loader && <Loader />}
+      {error && <ErrorBox message={error.message} />}
       {trans && (
         <React.Fragment>
           <div className={classes.primary}>
