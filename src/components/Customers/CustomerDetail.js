@@ -2,14 +2,19 @@ import { React, useEffect, useState } from "react";
 import classes from "./CustomersCss/CustomerDetail.module.css";
 import { useParams } from "react-router-dom";
 import { getACustomer } from "../../lib/requests";
+import Loader from "../UI/Loader";
 
 const CustomerDetail = (props) => {
   const [profile, setProfile] = useState(null);
   const params = useParams();
+  const [loader, setLoader] = useState(false);
+
   useEffect(() => {
     const fetchCustomerRecord = async (id) => {
+      setLoader(true);
       const response = await getACustomer(id);
       setProfile(response.data.profile);
+      setLoader(false);
     };
 
     fetchCustomerRecord(params.customerId);
@@ -31,6 +36,7 @@ const CustomerDetail = (props) => {
           </div>
         </header>
         <div className={classes.info}>
+          {loader && <Loader />}
           <div className={classes.billing}>
             <h3>Billing Info</h3>
             <div className="sea-blue-divide"></div>

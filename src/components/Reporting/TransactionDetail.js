@@ -3,15 +3,19 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { getTransactionById } from "../../lib/requests";
 import classes from "./ReportingCss/TransactionDetail.module.css";
+import Loader from "../UI/Loader";
 
 const TransactionDetail = (props) => {
   const [trans, setTrans] = useState(null);
+  const [loader, setLoader] = useState(false);
   const params = useParams();
 
   useEffect(() => {
     const getTranData = async (id) => {
+      setLoader(true);
       const response = await getTransactionById(id);
       setTrans(response.data);
+      setLoader(false);
     };
 
     getTranData(params.transactionId);
@@ -20,6 +24,7 @@ const TransactionDetail = (props) => {
   console.log(trans);
   return (
     <section id="transaction-detail" className={classes.detail}>
+      {loader && <Loader />}
       {trans && (
         <React.Fragment>
           <div className={classes.primary}>

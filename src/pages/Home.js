@@ -1,9 +1,10 @@
-import { React, useReducer, useEffect } from "react";
+import { React, useReducer, useEffect, useState } from "react";
 import classes from "./pages-css/Home.module.css";
 import TransGraph from "../components/Home/TransGraph";
 import DailyTran from "../components/Home/DailyTran";
 import { getDailyTotal, getStats } from "../lib/requests";
 import { last7 } from "../lib/util";
+import Loader from "../components/UI/Loader";
 
 const initialStatsState = {
   dates: last7(),
@@ -34,7 +35,7 @@ const statsReducer = (state, action) => {
     return {
       ...state,
       todaysTotal: action.val.unsettled_total,
-      dailyNum: action.val.totalTrans
+      dailyNum: action.val.totalTrans,
     };
   }
 
@@ -43,11 +44,14 @@ const statsReducer = (state, action) => {
 
 const Home = (props) => {
   const [state, dispatch] = useReducer(statsReducer, initialStatsState);
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
     const getTotal = async () => {
+      setLoader(true);
       const response = await getDailyTotal();
       dispatch({ type: "TODAY", val: response });
+      setLoader(false);
     };
 
     const stats = async () => {
@@ -61,6 +65,7 @@ const Home = (props) => {
 
   return (
     <main className={classes.home}>
+      {loader && <Loader />}
       <section className={classes.graph}>
         <header>
           <h2>Weekly Settlements</h2>

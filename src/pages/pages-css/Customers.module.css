@@ -30,10 +30,12 @@
 
 .customerTable {
     margin: 0 0.5rem;
-    max-height: 65vh;
-    min-width: 90vw;
-    min-height: 40vh;
-    border: 2px solid var(--dark-blue);
+    max-height: 80vh;
+    min-width: 65vw;
+    min-height: 80vh;
+    border-bottom: 2px solid var(--dark-blue);
+    border-left: 2px solid var(--dark-blue);
+    border-right: 2px solid var(--dark-blue);
     border-radius: 4px;
     overflow-x: hidden;
     overflow-y: scroll;

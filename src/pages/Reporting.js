@@ -4,6 +4,7 @@ import { nextPage, prevPage, bodyUpdate } from "../store/search-body-slice";
 import { useSelector, useDispatch } from "react-redux";
 import DataTable from "../components/Reporting/DataTable";
 import classes from "./pages-css/Reporting.module.css";
+import Loader from "../components/UI/Loader";
 
 const Reporting = () => {
   const searchBody = useSelector((state) => state.searchBody);
@@ -12,12 +13,14 @@ const Reporting = () => {
     date: false,
     status: false,
   });
+  const [loader, setLoader] = useState(false);
 
   const dispatch = useDispatch();
   const firstDate = useRef(null);
   const status = useRef("unsettled");
 
   const submitFormHandler = () => {
+    setLoader(true);
     dispatch(
       bodyUpdate({
         status: status.current.value,
@@ -25,6 +28,7 @@ const Reporting = () => {
         lastDate: firstDate.current.value,
       })
     );
+    setLoader(false);
   };
 
   const dateChangeHandler = () => {
@@ -49,8 +53,10 @@ const Reporting = () => {
 
   useEffect(() => {
     const getTrans = async () => {
+      setLoader(true);
       const response = await searchTransactions(searchBody);
       setTranData(response);
+      setLoader(false);
     };
     getTrans();
   }, [searchBody]);
@@ -96,6 +102,7 @@ const Reporting = () => {
         </div>
       </form>
       <DataTable data={tranData} />
+      {loader && <Loader />}
       <div className={classes.pageButtons}>
         <button
           type="button"

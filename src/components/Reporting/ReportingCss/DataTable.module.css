@@ -2,6 +2,11 @@
   max-height: 65vh;
   overflow-y: scroll;
   overflow-x: hidden;
+  margin: 0.5rem;
+  border-bottom: 2px solid var(--sea-blue);
+  border-left: 2px solid var(--sea-blue);
+  border-right: 2px solid var(--sea-blue);
+  border-radius: 4px;
 }
 
 .table {

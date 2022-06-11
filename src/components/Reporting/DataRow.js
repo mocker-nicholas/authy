@@ -32,8 +32,8 @@ const DataRow = (props) => {
       </td>
       <td>{`${firstName} ${lastName}`}</td>
       <td>
-        <Link to={`${transId}`} className={classes.info}>
-          <i className="fa-solid fa-circle-info"></i>
+        <Link to={`${transId}`}>
+          <i className={`fa-solid fa-circle-info ${classes.info}`}></i>
         </Link>
       </td>
     </tr>
