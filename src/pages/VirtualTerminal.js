@@ -106,8 +106,8 @@ const VirtualTerminal = (props) => {
             for="amount"
             className={
               formState.amount.hasError && formState.amount.touched
-                ? `w100 red`
-                : "w100"
+                ? `w100 ${classes.formGroup} red`
+                : `${classes.formGroup} w100`
             }
             label="Amount to Bill"
             onChange={inputChangeHandler}
@@ -120,8 +120,8 @@ const VirtualTerminal = (props) => {
               for="first"
               className={
                 formState.first.hasError && formState.first.touched
-                  ? `w100 red`
-                  : "w100"
+                  ? `w100 ${classes.formGroup} red`
+                  : `${classes.formGroup} w100`
               }
               label="First Name"
               onChange={inputChangeHandler}
@@ -132,8 +132,8 @@ const VirtualTerminal = (props) => {
               for="last"
               className={
                 formState.last.hasError && formState.last.touched
-                  ? `w100 red`
-                  : "w100"
+                  ? `w100 ${classes.formGroup} red`
+                  : `${classes.formGroup} w100`
               }
               label="Last Name"
               onChange={inputChangeHandler}
@@ -145,8 +145,8 @@ const VirtualTerminal = (props) => {
             for="company"
             className={
               formState.company.hasError && formState.company.touched
-                ? `w100 red`
-                : "w100"
+                ? `w100 ${classes.formGroup} red`
+                : `${classes.formGroup} w100`
             }
             label="Company"
             onChange={inputChangeHandler}
@@ -159,8 +159,8 @@ const VirtualTerminal = (props) => {
             for="street"
             className={
               formState.street.hasError && formState.street.touched
-                ? `w100 red`
-                : "w100"
+                ? `w100 ${classes.formGroup} red`
+                : `${classes.formGroup} w100`
             }
             label="Street Address"
             onChange={inputChangeHandler}
@@ -172,8 +172,8 @@ const VirtualTerminal = (props) => {
               for="city"
               className={
                 formState.city.hasError && formState.city.touched
-                  ? `w100 red`
-                  : "w100"
+                  ? `w100 ${classes.formGroup} red`
+                  : `${classes.formGroup} w100`
               }
               label="City"
               onChange={inputChangeHandler}
@@ -184,8 +184,8 @@ const VirtualTerminal = (props) => {
               for="state"
               className={
                 formState.state.hasError && formState.state.touched
-                  ? `w100 red`
-                  : "w100"
+                  ? `w100 ${classes.formGroup} red`
+                  : `${classes.formGroup} w100`
               }
               label="State"
               onChange={inputChangeHandler}
@@ -198,8 +198,8 @@ const VirtualTerminal = (props) => {
               for="zip"
               className={
                 formState.zip.hasError && formState.zip.touched
-                  ? `w100 red`
-                  : "w100"
+                  ? `w100 ${classes.formGroup} red`
+                  : `${classes.formGroup} w100`
               }
               label="Zipcode"
               onChange={inputChangeHandler}
@@ -208,7 +208,7 @@ const VirtualTerminal = (props) => {
             />
             <FormGroup
               for="country"
-              className="w100"
+              className={`${classes.formGroup} w100`}
               label="Country"
               onChange={inputChangeHandler}
               value={formState.country.value}

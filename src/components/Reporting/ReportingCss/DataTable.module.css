@@ -33,6 +33,11 @@
 }
 
 @media screen and (max-width: 800px) {
+
+  .wrapper {
+    margin: 0.25rem;
+  }
+  
   .table thead {
     font-size: 0.75rem;
   }

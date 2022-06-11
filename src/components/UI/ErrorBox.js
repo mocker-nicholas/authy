@@ -6,7 +6,7 @@ import classes from "./UiCss/ErrorBox.module.css";
 const ErrorBox = (props) => {
   return (
     <div className={classes.errorBox}>
-      <header>Uh Oh!</header>
+      <header>Sorry about that...</header>
       <div>
         <p>{props.message}</p>
       </div>

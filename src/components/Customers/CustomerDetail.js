@@ -27,7 +27,6 @@ const CustomerDetail = (props) => {
     fetchCustomerRecord(params.customerId);
   }, [params]);
 
-  console.log(error);
   return (
     <section id="customer-profile" className={classes.customerProfile}>
       <div className={classes.profileContainer}>

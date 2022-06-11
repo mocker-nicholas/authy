@@ -40,3 +40,9 @@
     overflow-x: hidden;
     overflow-y: scroll;
 }
+
+@media screen and (max-width: 800px) {
+    .labels {
+        font-size: 0.75rem;
+    }
+}
