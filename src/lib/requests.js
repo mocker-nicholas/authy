@@ -7,6 +7,16 @@ export const request = axios.create({
   baseURL: baseUrl,
 });
 
+export const generateTransaction = async () => {
+  const response = await request.post("/transaction/generate");
+  return response;
+};
+
+export const getTransactionById = async (id) => {
+  const response = await request.get(`/transaction/${id}`);
+  return response;
+};
+
 export const searchTransactions = async (body) => {
   const response = await request.post("/transaction/search", {
     ...body,
@@ -29,11 +39,6 @@ export const getDailyTotal = async () => {
 
 export const getHostedToken = async (body) => {
   const response = await request.post("/vt/hosted", { ...body });
-  return response;
-};
-
-export const generateTransaction = async () => {
-  const response = await request.post("/transaction/generate");
   return response;
 };
 

@@ -1,0 +1,24 @@
+.detail {
+    color: var(--dark-blue);
+    margin: 0.5rem;
+}
+
+.primary {
+    padding: 0.5rem;
+    border: 1px solid var(--dark-blue);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.seaBlue {
+    color: var(--sea-blue);
+    border-bottom: 1px solid var(--sea-blue);
+}
+
+.small {
+    font-size: 0.75rem;
+}
+

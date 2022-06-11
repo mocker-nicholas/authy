@@ -6,6 +6,25 @@
     padding: 0.5rem  0 0.5rem 0.25rem;
 }
 
+.info a {
+    color: var(--orange);
+    transition: 0.2s all;
+  }
+  
+  .info:hover {
+    color: var(--o-orange);
+    transform: scale(1.2);
+  }
+  
+  .info:active {
+    color: var(--o-orange);
+    transform: scale(1.2);
+  }
+  
+  .info:visted {
+    color: var(--o-orange);
+  }
+
 @media screen and (max-width: 800px) {
     .row {
         font-size: 0.75rem;

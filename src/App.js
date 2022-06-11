@@ -8,6 +8,7 @@ import VirtualTerminal from "./pages/VirtualTerminal";
 import Invoicing from "./pages/Invoicing";
 import Customers from "./pages/Customers";
 import CustomerDetail from "./components/Customers/CustomerDetail";
+import TransactionDetail from "./components/Reporting/TransactionDetail";
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
           {" "}
         </Route>
         <Route path="/reporting" element={<Reporting />}></Route>
+        <Route
+          path="/reporting/:transactionId"
+          element={<TransactionDetail />}
+        ></Route>
         <Route path="/invoicing" element={<Invoicing />}></Route>
       </Routes>
     </React.Fragment>
