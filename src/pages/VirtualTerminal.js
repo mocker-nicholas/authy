@@ -3,6 +3,8 @@ import classes from "./pages-css/VirtualTerminal.module.css";
 import FormGroup from "../components/UI/FormGroup";
 import { onInputChange } from "../lib/vTValidate";
 import { getHostedToken, generateTransaction } from "../lib/requests";
+import Loader from "../components/UI/Loader";
+import { useNavigate } from "react-router-dom";
 
 const defaultState = {
   first: { value: "", touched: false, hasError: true, error: "" },
@@ -41,16 +43,23 @@ const formReducer = (state, action) => {
 const VirtualTerminal = (props) => {
   const [formState, dispatchForm] = useReducer(formReducer, defaultState);
   const [token, setToken] = useState(null);
+  const [loader, setLoader] = useState(false);
+  const navigate = useNavigate();
 
   const generateHandler = async () => {
+    setLoader(true);
     const response = await generateTransaction();
-    console.log(response.data);
+    console.log(response);
+    navigate(`/reporting/${response.data.transId}`);
+    setLoader(false);
   };
   // Reach out to authnet to get hosted page
   const submitHandler = async (e) => {
+    setLoader(true);
     const response = await getHostedToken(formState);
     setToken(response.data.token);
     dispatchForm({ type: "RESET" });
+    setLoader(false);
   };
 
   // Get new reducer state values and validate values, display errors
@@ -92,6 +101,7 @@ const VirtualTerminal = (props) => {
       </header>
       {!token && (
         <form>
+          {loader && <Loader />}
           <FormGroup
             for="amount"
             className={

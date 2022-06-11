@@ -12,7 +12,9 @@ const Landing = () => {
     <React.Fragment>
       <main className={classes.landing}>
         <header>
-          <Link to="/home" className="btn-dark-blue">Continue to App</Link>
+          <Link to="/home" className="btn-dark-blue">
+            Continue to App
+          </Link>
         </header>
         <section>
           <ContentCard
@@ -23,7 +25,7 @@ const Landing = () => {
           <ContentCard
             svg={<img src={compliant} alt="PCI Compliant"></img>}
             title="Secure"
-            content="Stay PCI compliant with invoicing"
+            content="Stay PCI compliant with hosted payments"
           />
           <ContentCard
             svg={<img src={payment} alt="Proactive outreach"></img>}
