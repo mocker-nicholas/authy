@@ -3,6 +3,31 @@ export const validateInput = (name, value) => {
   let hasError = false,
     error = "";
   switch (name) {
+    case "email":
+      if (value.trim() === "") {
+        hasError = true;
+        error = "Email cannot be empty";
+      } else if (/[#$%^*:{}]/g.test(value)) {
+        hasError = true;
+        error =
+          "Only '&', '_', '-', '@', and '!' are allowed as special characters";
+      } else {
+        hasError = false;
+        error = "";
+      }
+      break;
+    case "description":
+      if (value.trim() === "") {
+        hasError = true;
+        error = "Description cannot be empty";
+      } else if (!/^[a-zA-Z ]+$/.test(value)) {
+        hasError = true;
+        error = "Invalid Description. Avoid Special characters";
+      } else {
+        hasError = false;
+        error = "";
+      }
+      break;
     case "amount":
       if (parseFloat(value).toFixed(2) < 0.01) {
         hasError = true;

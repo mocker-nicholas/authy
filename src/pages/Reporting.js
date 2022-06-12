@@ -60,6 +60,7 @@ const Reporting = () => {
     };
     getTrans();
   }, [searchBody]);
+
   return (
     <section id="reporting" className={classes.reporting}>
       <form>
@@ -73,6 +74,7 @@ const Reporting = () => {
               type="date"
               ref={firstDate}
               onChange={dateChangeHandler}
+              defaultValue={searchBody.firstDate}
             ></input>
           </div>
           <div>
@@ -81,7 +83,7 @@ const Reporting = () => {
             </div>
             <select
               id="status"
-              defaultValue="unsettled"
+              defaultValue={searchBody.status}
               ref={status}
               onChange={statusChangeHandler}
             >

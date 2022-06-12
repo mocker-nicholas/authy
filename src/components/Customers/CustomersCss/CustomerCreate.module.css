@@ -1,0 +1,52 @@
+.customerCreate {
+    color: var(--dark-blue)
+}
+
+.customerCreate header {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.customerCreate form {
+    background-color: var(--white);
+    border: 2px solid var(--dark-blue);
+    padding: 0.5rem;
+    margin: 0 auto;
+    width: 95vw;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.customerCreate form p {
+    font-size: 0.75rem;
+}
+
+.customerCreate label {
+    border-bottom: 2px solid var(--yellow);
+}
+
+.customerCreate input {
+    width: 100%;
+    border: none;
+    outline: none;
+    border: 2px solid transparent;
+    border-bottom: 1px solid var(--dark-blue);
+    background-color: rgba(238, 238, 238, 0.8);
+    padding: 4px 0px 4px 8px;
+    margin-top: 0.5rem;
+}
+
+.customerCreate form button {
+    width: 100%;
+}
+
+.formGroup {
+    margin-bottom: 1rem;
+}

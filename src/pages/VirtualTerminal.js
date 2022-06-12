@@ -1,7 +1,7 @@
 import { React, useReducer, useState } from "react";
 import classes from "./pages-css/VirtualTerminal.module.css";
 import FormGroup from "../components/UI/FormGroup";
-import { onInputChange } from "../lib/vTValidate";
+import { onInputChange } from "../lib/formValidate";
 import { getHostedToken, generateTransaction } from "../lib/requests";
 import Loader from "../components/UI/Loader";
 import { useNavigate } from "react-router-dom";

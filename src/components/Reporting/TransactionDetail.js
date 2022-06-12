@@ -99,12 +99,16 @@ const TransactionDetail = (props) => {
                 Refund
               </button>
             )}
-            {trans.transactionStatus === "Pending Settlement" ||
-              ("Refund Pending" && (
-                <button onClick={voidTransHandler} className="btn-dark-orange">
-                  Void
-                </button>
-              ))}
+            {trans.transactionStatus === "Pending Settlement" && (
+              <button onClick={voidTransHandler} className="btn-dark-orange">
+                Void
+              </button>
+            )}
+            {trans.transactionStatus === "Refund Pending" && (
+              <button onClick={voidTransHandler} className="btn-dark-orange">
+                Void
+              </button>
+            )}
           </div>
           <div className={`${classes.primary}`}>
             <h4>Transaction Details:</h4>

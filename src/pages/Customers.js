@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from "react";
 import { getCustomers } from "../lib/requests";
+import { Link } from "react-router-dom";
 import CustomerRow from "../components/Customers/CustomerRow";
 import classes from "./pages-css/Customers.module.css";
 import Loader from "../components/UI/Loader";
@@ -21,7 +22,9 @@ const Customers = () => {
     <section id="customers" className={classes.customers}>
       <header>
         <h2>Saved Customers</h2>
-        <button className="btn-dark-orange">Create</button>
+        <Link to="create" className="btn-dark-orange">
+          Create
+        </Link>
       </header>
       <div id="customer-table" className={classes.customerTable}>
         {loader && <Loader />}

@@ -17,16 +17,8 @@
     margin-bottom: 1rem;
 }
 
-.customers header button {
-    max-width: 300px;
-}
-
 .customers header h2 {
     font-size: 1.25rem;
-}
-
-.customers header button {
-    width: 100%;
 }
 
 .labels {

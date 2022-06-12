@@ -9,6 +9,7 @@ import Invoicing from "./pages/Invoicing";
 import Customers from "./pages/Customers";
 import CustomerDetail from "./components/Customers/CustomerDetail";
 import TransactionDetail from "./components/Reporting/TransactionDetail";
+import CustomerCreate from "./components/Customers/CustomerCreate";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/home" element={<Home />}></Route>
         <Route path="/vt" element={<VirtualTerminal />}></Route>
         <Route path="/customers" element={<Customers />}></Route>
+        <Route path="/customers/create" element={<CustomerCreate />}></Route>
         <Route path="/customers/:customerId" element={<CustomerDetail />}>
           {" "}
         </Route>
