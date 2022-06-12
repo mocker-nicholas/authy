@@ -66,15 +66,6 @@ const Home = (props) => {
   return (
     <main className={classes.home}>
       {loader && <Loader />}
-      <section className={classes.graph}>
-        <header>
-          <h2>Weekly Settlements</h2>
-        </header>
-        <div className="sea-blue-divide"></div>
-        <div className={classes.graphContainer}>
-          <TransGraph dates={state.dates} totals={state.totals} />
-        </div>
-      </section>
       <section className={classes.summary}>
         <header>
           <h2>Summary</h2>
@@ -85,6 +76,15 @@ const Home = (props) => {
           weekTotal={state.weekTotal}
           todaysNum={state.dailyNum}
         />
+      </section>
+      <section className={classes.graph}>
+        <header>
+          <h2>Weekly Settlements</h2>
+        </header>
+        <div className="sea-blue-divide"></div>
+        <div className={classes.graphContainer}>
+          <TransGraph dates={state.dates} totals={state.totals} />
+        </div>
       </section>
       <div className={`spacer ${classes.hide}`}></div>
     </main>

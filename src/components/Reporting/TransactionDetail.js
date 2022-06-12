@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import React from "react";
-import { useParams } from "react-router-dom";
-import { getTransactionById } from "../../lib/requests";
+import { useParams, useNavigate } from "react-router-dom";
+import {
+  getTransactionById,
+  voidTransaction,
+  refundTransaction,
+} from "../../lib/requests";
 import classes from "./ReportingCss/TransactionDetail.module.css";
 import Loader from "../UI/Loader";
 import ErrorBox from "../UI/ErrorBox";
@@ -10,7 +14,38 @@ const TransactionDetail = (props) => {
   const [trans, setTrans] = useState(null);
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(false);
+  const navigate = useNavigate();
   const params = useParams();
+
+  const voidTransHandler = async () => {
+    setLoader(true);
+    const response = await voidTransaction(params.transactionId);
+    if (response.data.messages.resultCode === "Ok") {
+      navigate(`/reporting/${params.transactionId}`);
+      setLoader(false);
+    } else {
+      setError({ message: "Uknown error: Unable to void transaction" });
+    }
+  };
+
+  const refundTransHandler = async () => {
+    setLoader(true);
+    const response = await refundTransaction({
+      id: params.transactionId,
+      amount: trans.settleAmount,
+      cardNumber: trans.payment.creditCard.cardNumber,
+    });
+    console.log(response.data);
+    if (response.data.transactionResponse.responseCode === "1") {
+      navigate(`/reporting/${response.data.transactionResponse.transId}`);
+      setLoader(false);
+    } else {
+      setError({
+        message: response.data.transactionResponse.errors[0].errorText,
+      });
+      setLoader(false);
+    }
+  };
 
   useEffect(() => {
     const getTranData = async (id) => {
@@ -18,7 +53,6 @@ const TransactionDetail = (props) => {
       const response = await getTransactionById(id);
       if (response.data.error) {
         setLoader(false);
-        console.log("here");
         setError({ message: response.data.error });
       } else {
         setTrans(response.data);
@@ -32,7 +66,9 @@ const TransactionDetail = (props) => {
   return (
     <section id="transaction-detail" className={classes.detail}>
       {loader && <Loader />}
-      {error && <ErrorBox message={error.message} />}
+      <div className={classes.errorContainer}>
+        {error && <ErrorBox message={error.message} path="/reporting" />}
+      </div>
       {trans && (
         <React.Fragment>
           <div className={classes.primary}>
@@ -58,6 +94,17 @@ const TransactionDetail = (props) => {
             <p className={classes.small}>
               Response: {trans.responseReasonDescription}
             </p>
+            {trans.transactionStatus === "Settled" && (
+              <button onClick={refundTransHandler} className="btn-dark-orange">
+                Refund
+              </button>
+            )}
+            {trans.transactionStatus === "Pending Settlement" ||
+              ("Refund Pending" && (
+                <button onClick={voidTransHandler} className="btn-dark-orange">
+                  Void
+                </button>
+              ))}
           </div>
           <div className={`${classes.primary}`}>
             <h4>Transaction Details:</h4>

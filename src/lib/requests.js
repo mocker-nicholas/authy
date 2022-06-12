@@ -17,6 +17,18 @@ export const getTransactionById = async (id) => {
   return response;
 };
 
+export const voidTransaction = async (id) => {
+  const response = await request.post(`/transaction/${id}/void`);
+  return response;
+};
+
+export const refundTransaction = async (body) => {
+  const response = await request.post(`/transaction/${body.id}/refund`, {
+    ...body,
+  });
+  return response;
+};
+
 export const searchTransactions = async (body) => {
   const response = await request.post("/transaction/search", {
     ...body,
