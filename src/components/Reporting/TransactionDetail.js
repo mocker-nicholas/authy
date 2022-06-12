@@ -74,7 +74,9 @@ const TransactionDetail = (props) => {
           <div className={classes.primary}>
             <h3>
               Amount:{" "}
-              <span className={classes.seaBlue}>{trans.authAmount}</span>
+              <span className={classes.seaBlue}>
+                {parseFloat(trans.authAmount).toFixed(2)}
+              </span>
             </h3>
             <p>
               Status:{" "}

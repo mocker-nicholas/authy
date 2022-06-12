@@ -69,7 +69,6 @@ const Home = (props) => {
       <section className={classes.summary}>
         <header>
           <h2>Summary</h2>
-          <div className="sea-blue-divide"></div>
         </header>
         <DailyTran
           todaysTotal={state.todaysTotal}
@@ -81,7 +80,7 @@ const Home = (props) => {
         <header>
           <h2>Weekly Settlements</h2>
         </header>
-        <div className="sea-blue-divide"></div>
+
         <div className={classes.graphContainer}>
           <TransGraph dates={state.dates} totals={state.totals} />
         </div>

@@ -98,7 +98,13 @@ const VirtualTerminal = (props) => {
   return (
     <section id="virtualTerminal" className={classes.virtualTerminal}>
       {error && (
-        <ErrorBox message={error.message} to="/vt" clear={clearErrorHandler} />
+        <div className={classes.errorContainer}>
+          <ErrorBox
+            message={error.message}
+            to="/vt"
+            clear={clearErrorHandler}
+          />
+        </div>
       )}
       {!error && (
         <header>

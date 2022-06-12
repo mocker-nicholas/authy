@@ -9,7 +9,7 @@ const Invoicing = () => {
       <div className={classes.container}>
         <img alt="This page is under construction" src={construction}></img>
       </div>
-      <p>Authy Invoicing is under construction and will up soon.</p>
+      <p>Authy Invoicing is under construction and will be up soon.</p>
       <p>Please check back periodically for updates!</p>
     </section>
   );

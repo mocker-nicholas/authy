@@ -17,6 +17,33 @@
     width: 100%;
 }
 
+.amount {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.amount label {
+    border-bottom: 2px solid var(--yellow);
+}
+
+.amount input {
+    width: 150px;
+    border: none;
+    outline: none;
+    border: 2px solid transparent;
+    border-bottom: 1px solid var(--dark-blue);
+    background-color: rgba(238, 238, 238, 0.8);
+    padding: 4px 0px 4px 8px;
+    margin-top: 0.5rem;
+    margin-right: 1rem;
+}
+.amount p {
+    color: red;
+    font-size: 0.75rem;
+}
+
 .info {
     min-width: 60vw;
     max-width: 95vw;
