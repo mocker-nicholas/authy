@@ -20,7 +20,7 @@ const Customers = () => {
   return (
     <section id="customers" className={classes.customers}>
       <header>
-        <h2>Your Saved Customers</h2>
+        <h2>Saved Customers</h2>
         <button className="btn-dark-orange">Create</button>
       </header>
       <div id="customer-table" className={classes.customerTable}>

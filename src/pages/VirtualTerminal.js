@@ -5,6 +5,7 @@ import { onInputChange } from "../lib/vTValidate";
 import { getHostedToken, generateTransaction } from "../lib/requests";
 import Loader from "../components/UI/Loader";
 import { useNavigate } from "react-router-dom";
+import ErrorBox from "../components/UI/ErrorBox";
 
 const defaultState = {
   first: { value: "", touched: false, hasError: true, error: "" },
@@ -44,14 +45,23 @@ const VirtualTerminal = (props) => {
   const [formState, dispatchForm] = useReducer(formReducer, defaultState);
   const [token, setToken] = useState(null);
   const [loader, setLoader] = useState(false);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const generateHandler = async () => {
     setLoader(true);
     const response = await generateTransaction();
-    console.log(response);
+    if (response.data.errors) {
+      setLoader(false);
+      setError({ message: response.data.errors[0].errorText });
+      return;
+    }
     navigate(`/reporting/${response.data.transId}`);
     setLoader(false);
+  };
+
+  const clearErrorHandler = () => {
+    setError(null);
   };
   // Reach out to authnet to get hosted page
   const submitHandler = async (e) => {
@@ -87,18 +97,26 @@ const VirtualTerminal = (props) => {
 
   return (
     <section id="virtualTerminal" className={classes.virtualTerminal}>
-      <header>
-        <button
-          type="button"
-          className="btn-dark-orange"
-          onClick={generateHandler}
-        >
-          Generate Random Transaction
-        </button>
-        <div className="orange-divide"></div>
-        <p>Or, fill out the form below to create your own!</p>
-        <div className="orange-divide"></div>
-      </header>
+      {error && (
+        <ErrorBox message={error.message} to="/vt" clear={clearErrorHandler} />
+      )}
+      {!error && (
+        <header>
+          <div className="orange-divide"></div>
+          <p>
+            Use the form below to create a hosted payments page, or use the
+            button to generate a random transaction!
+          </p>
+          <div className="orange-divide"></div>
+          <button
+            type="button"
+            className="btn-dark-orange"
+            onClick={generateHandler}
+          >
+            Generate Random Transaction
+          </button>
+        </header>
+      )}
       {!token && (
         <form>
           {loader && <Loader />}

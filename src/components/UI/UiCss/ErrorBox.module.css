@@ -1,10 +1,9 @@
 .errorBox {
-    border: 2px solid red;
-    color: darkred;
+    border: 2px solid var(--dark-blue);
+    color: var(--orange);
     font-weight: bold;
     border-radius: 4px;
-    margin: 0 auto;
-    margin-top: 25vh;
+    margin: 1rem auto;
     min-width: 80vw;
     max-width: 600px;
     text-align: center;
@@ -15,7 +14,7 @@
 }
 
 .errorBox header {
-    background-color: red;
+    background-color: var(--dark-blue);
     color: var(--white);
     padding: 0.5rem;
     text-align: center;

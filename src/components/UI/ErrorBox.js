@@ -11,9 +11,16 @@ const ErrorBox = (props) => {
         <p>{props.message}</p>
       </div>
       <div className={classes.button}>
-        <Link to="/home" className="btn-dark-blue">
-          Go Home
-        </Link>
+        {!props.clear && (
+          <Link to="/home" className="btn-dark-blue">
+            Go Back
+          </Link>
+        )}
+        {props.clear && (
+          <button className="btn-dark-blue" onClick={props.clear}>
+            Go Back
+          </button>
+        )}
       </div>
     </div>
   );

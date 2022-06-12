@@ -23,6 +23,9 @@
     padding: 0.5rem;
     background-color: #f4f4f4;
     border-radius: 4px;
+    width: 90%;
+    min-width: 400px;
+    max-width: 800px;
 }
 
 .info li {
