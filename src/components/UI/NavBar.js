@@ -22,6 +22,7 @@ const NavBar = (props) => {
       <div className={classes.navlines} onClick={showNavHandler}>
         <div className={classes.navline}></div>
         <div className={classes.navline}></div>
+        <div className={classes.navline}></div>
       </div>
       <ul>
         <li>

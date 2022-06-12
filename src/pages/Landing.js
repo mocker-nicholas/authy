@@ -16,7 +16,7 @@ const Landing = () => {
             Continue to App
           </Link>
         </header>
-        <section>
+        <section className={classes.cards}>
           <ContentCard
             svg={<img src={mobile} alt="Mobile Friendly"></img>}
             title="Mobile Friendly"

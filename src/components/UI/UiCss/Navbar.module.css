@@ -55,7 +55,7 @@
     background-color: var(--white);
     height: 100%;
     width: 100%;
-    margin: 5px;
+    margin: 4px;
 }
 
 .extend {
@@ -85,5 +85,21 @@
 
     .navlink, .active {
         padding: 6px 8px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .navbar {
+        border-radius: 0;
+        font-size: 1.5rem;
+        width: 100vw;
+        position: relative;
+        bottom: 0;
+        justify-content: center;
+        padding:1rem;
+    }
+    
+    .navlines{
+        display: none;
     }
 }

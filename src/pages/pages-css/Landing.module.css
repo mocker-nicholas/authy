@@ -22,3 +22,18 @@
 .landing a:visited {
   color: white;
 }
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 1250px) {
+  .cards {
+    flex-direction: row;
+    gap: 9vw;
+    margin: 0 0.5rem;
+  }
+}

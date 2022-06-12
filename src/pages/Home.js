@@ -71,7 +71,9 @@ const Home = (props) => {
           <h2>Weekly Settlements</h2>
         </header>
         <div className="sea-blue-divide"></div>
-        <TransGraph dates={state.dates} totals={state.totals} />
+        <div className={classes.graphContainer}>
+          <TransGraph dates={state.dates} totals={state.totals} />
+        </div>
       </section>
       <section className={classes.summary}>
         <header>
@@ -84,7 +86,7 @@ const Home = (props) => {
           todaysNum={state.dailyNum}
         />
       </section>
-      <div className="spacer"></div>
+      <div className={`spacer ${classes.hide}`}></div>
     </main>
   );
 };

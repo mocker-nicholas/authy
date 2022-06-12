@@ -4,19 +4,19 @@ import { Chart, registerables } from "chart.js";
 Chart.register(...registerables);
 
 const TransGraph = (props) => {
-  const width = window.innerWidth;
+  // const width = window.innerWidth;
 
-  let chartH;
-  if (width > 1000) {
-    chartH = "30vh";
-  } else {
-    chartH = "60vh";
-  }
+  // let chartH;
+  // if (width > 1000) {
+  //   chartH = "30vh";
+  // } else {
+  //   chartH = "60vh";
+  // }
 
   return (
     <Line
-      height={chartH}
-      width="80vw"
+      // height={chartH}
+      // width="80vw"
       data={{
         labels: props.dates,
 

@@ -5,13 +5,42 @@
 
 .total {
     background-color: var(--dark-blue);
+    transition: 0.6s all;
     padding: 1rem;
+    margin: 1rem 0;
     border-radius: 4px;
     font-size: 1.25rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
-.total span {
+.total:hover {
+    background-color: var(--yellow);
+    transform: scale(1.1);
+}
+
+.total p {
     background-color: var(--sea-blue);
     border-radius: 4px;
-    padding: 0.25rem;
+    padding: 0.1rem 1rem;
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+
+
+@media screen and (min-width: 800px) {
+   .summary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+   }
+
+   .total {
+    width: 28%;
+   }
+
+   .hide {
+    display: none;
+   }
 }
