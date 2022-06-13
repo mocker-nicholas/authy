@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/authy/static/css/main.cae00e2a.css",
+    "main.js": "/authy/static/js/main.c8b5aa88.js",
+    "static/js/787.3296a7a5.chunk.js": "/authy/static/js/787.3296a7a5.chunk.js",
+    "static/media/payment.svg": "/authy/static/media/payment.63886c64ce0d22f2236d5937186f3462.svg",
+    "static/media/compliant.svg": "/authy/static/media/compliant.830f8224236cba9b7d428c0c50749819.svg",
+    "static/media/mobile.svg": "/authy/static/media/mobile.b182737e9490ec65413518a4f307a68b.svg",
+    "static/media/under_construction.svg": "/authy/static/media/under_construction.84a1c08d3aed4458c91265e1eff1ff72.svg",
+    "index.html": "/authy/index.html",
+    "static/media/landing.svg": "/authy/static/media/landing.b0181e864e2803395432.svg",
+    "main.cae00e2a.css.map": "/authy/static/css/main.cae00e2a.css.map",
+    "main.c8b5aa88.js.map": "/authy/static/js/main.c8b5aa88.js.map",
+    "787.3296a7a5.chunk.js.map": "/authy/static/js/787.3296a7a5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cae00e2a.css",
+    "static/js/main.c8b5aa88.js"
+  ]
+}
