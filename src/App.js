@@ -16,7 +16,7 @@ function App() {
     <React.Fragment>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Landing />} />
+        <Route path="/authy" element={<Landing />} />
         <Route path="/home" element={<Home />}></Route>
         <Route path="/vt" element={<VirtualTerminal />}></Route>
         <Route path="/customers" element={<Customers />}></Route>
