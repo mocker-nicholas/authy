@@ -33,8 +33,8 @@ const Landing = () => {
             content="Reach your customers in more ways"
           />
         </section>
+        <Footer />
       </main>
-      <Footer />
     </React.Fragment>
   );
 };

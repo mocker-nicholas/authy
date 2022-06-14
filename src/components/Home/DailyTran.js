@@ -9,11 +9,11 @@ const DailyTran = (props) => {
       </div>
       <div className={`sea-blue-divide ${classes.hide}`}></div>
       <div className={classes.total}>
-        Today's Total: <p>${props.todaysTotal}</p>
+        Pending Total: <p>${props.todaysTotal}</p>
       </div>
       <div className={`sea-blue-divide ${classes.hide}`}></div>
       <div className={classes.total}>
-        Transactions Today: <p>{props.todaysNum}</p>
+        Pending Transactions: <p>{props.todaysNum}</p>
       </div>
       <div className={`sea-blue-divide ${classes.hide}`}></div>
     </section>

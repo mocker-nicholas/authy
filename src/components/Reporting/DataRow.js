@@ -17,7 +17,7 @@ const DataRow = (props) => {
   return (
     <tr className={classes.row} id={transId}>
       <td className={classes.date}>{date}</td>
-      <td>${settleAmount}</td>
+      <td>${parseFloat(settleAmount).toFixed(2)}</td>
       <td
         className={
           (transactionStatus === "Refund Pending" && "orange") ||

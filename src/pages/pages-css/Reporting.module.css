@@ -36,7 +36,8 @@
   border-radius: 4px;
   padding: 0.25rem;
   margin-top: 4px;
-  width: calc(90vw / 2) 
+  width: calc(90vw / 2);
+  cursor: pointer;
 }
 
 .button {

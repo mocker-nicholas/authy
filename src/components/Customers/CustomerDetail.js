@@ -15,16 +15,28 @@ const CustomerDetail = (props) => {
 
   const onBlurHandler = (e) => {
     const value = e.target.value;
-    setAmount((state) => {
-      return { value: parseFloat(value).toFixed(2), error: state.error };
-    });
+    if (value === "") {
+      setAmount((state) => {
+        return {
+          value: "0.00",
+          error: state.error,
+        };
+      });
+    } else {
+      setAmount((state) => {
+        return {
+          value: parseFloat(value).toFixed(2),
+          error: state.error,
+        };
+      });
+    }
   };
 
   const onChangeHandler = (e) => {
     const value = e.target.value;
     if (parseFloat(value).toFixed(2) < 0.01) {
       setAmount({
-        value: parseFloat(value).toFixed(2).toString(),
+        value: "",
         error: "Amount must be greater than $0.01",
       });
     } else if (/[a-zA-Z]/.test(value)) {
