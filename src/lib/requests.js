@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "https://authnetserver.herokuapp.com/api";
+const baseUrl = "http://localhost:8080/api";
 // const devUrl = "http://localhost:8080/api";
 // prod url = https://authnetserver.herokuapp.com/api
 
@@ -75,5 +75,10 @@ export const chargeCustomer = async (body) => {
   const response = await request.post(`/customer/${body.id}/charge`, {
     ...body,
   });
+  return response;
+};
+
+export const getInvoices = async () => {
+  const response = await request.get("/invoice");
   return response;
 };

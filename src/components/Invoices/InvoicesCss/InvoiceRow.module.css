@@ -1,0 +1,56 @@
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--yellow);
+    border-right: 1px solid var(--dark-blue);
+    font-size: 0.75rem;
+}
+
+.item {
+    border-left: 1px solid var(--dark-blue);
+    width: 25%;
+    height: 80px;
+    align-items: center;
+    padding: 1rem 0.5rem;
+}
+
+.link {
+    color: var(--orange);
+    text-decoration: underline;
+    transition: 0.2s all;
+    font-size: 1rem;
+}
+
+.link:hover {
+    color: var(--yellow);
+}
+
+.link:visited {
+    color: var(--orange);
+}
+
+.paid {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 8px 8px;
+    border-radius: 4px;
+}
+
+.outstanding {
+    background-color: var(--orange);
+    color: var(--white);
+    padding: 8px 8px;
+    border-radius: 4px;
+}
+
+@media screen and (max-width: 600px) {
+
+    .link {
+        font-size: 0.75rem;
+    }
+    
+    .item {
+        font-size: 0.5rem;
+    }
+}
