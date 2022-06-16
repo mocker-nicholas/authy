@@ -92,3 +92,8 @@ export const deleteInvoice = async (id) => {
   const response = await request.delete(`/invoice/${id}`);
   return response;
 };
+
+export const createInvoice = async (body) => {
+  const response = await request.post("/invoice/create", { ...body });
+  return response;
+};
