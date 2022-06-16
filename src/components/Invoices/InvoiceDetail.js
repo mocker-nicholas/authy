@@ -25,11 +25,15 @@ const InvoiceDetail = (props) => {
     }
   };
 
+  const updateHandler = () => {
+    navigate(`/invoicing/${params.invoiceId}/update`);
+  };
+
   useEffect(() => {
     const getInvoice = async (id) => {
       setLoader(true);
       const data = await getInvoiceById(id);
-      if (data.data[0].invoice_number) {
+      if (!data.data[0].error) {
         setInvoice(data.data[0]);
         setLoader(false);
       } else {
@@ -45,7 +49,9 @@ const InvoiceDetail = (props) => {
       <header>
         <h2>Invoice #: {invoice && invoice.invoice_number}</h2>
         <div>
-          <button className="btn-sea-blue">Update</button>
+          <button onClick={updateHandler} className="btn-sea-blue">
+            Update
+          </button>
           <button onClick={deleteHandler} className="btn-dark-orange">
             Delete
           </button>

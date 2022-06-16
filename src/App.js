@@ -33,7 +33,9 @@ function App() {
           element={<TransactionDetail />}
         ></Route>
         <Route path="/invoicing" element={<Invoicing />}></Route>
+        <Route path="/invoicing/create" element={<Home />}></Route>
         <Route path="/invoicing/:invoiceId" element={<InvoiceDetail />}></Route>
+        <Route path="/invoicing/:invoiceId/update" element={<Home />}></Route>
         <Route path="*" element={<Home />}></Route>
       </Routes>
     </React.Fragment>

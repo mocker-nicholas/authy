@@ -38,20 +38,22 @@ const Invoicing = () => {
       </header>
       {loader && <Loader />}
       {error && <ErrorBox message={error.error} />}
-      {invoices.length && (
-        <div className={classes.invoiceTable}>
-          <div className={classes.tableHead}>
-            <div className={classes.label}>Invoice #</div>
-            <div className={classes.label}>Name</div>
-            <div className={classes.label}>Amount</div>
-            <div className={classes.label}>Status</div>
-          </div>
-          {invoices &&
-            invoices.map((inv) => {
-              return <InvoiceRow key={inv.invoice_number} inv={inv} />;
-            })}
+      <div className={classes.tableWrapper}>
+        <div className={classes.tableHead}>
+          <div className={classes.label}>Invoice #</div>
+          <div className={classes.label}>Name</div>
+          <div className={classes.label}>Amount</div>
+          <div className={classes.label}>Status</div>
         </div>
-      )}
+        {invoices.length && (
+          <div className={classes.invoiceTable}>
+            {invoices &&
+              invoices.map((inv) => {
+                return <InvoiceRow key={inv.invoice_number} inv={inv} />;
+              })}
+          </div>
+        )}
+      </div>
     </section>
   );
 };

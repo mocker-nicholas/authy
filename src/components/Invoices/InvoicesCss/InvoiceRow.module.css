@@ -5,14 +5,15 @@
     border-bottom: 1px solid var(--yellow);
     border-right: 1px solid var(--dark-blue);
     font-size: 0.75rem;
+    height: 80px;
 }
 
 .item {
     border-left: 1px solid var(--dark-blue);
     width: 25%;
-    height: 80px;
     align-items: center;
     padding: 1rem 0.5rem;
+    max-height: 80px;
 }
 
 .link {
