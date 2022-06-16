@@ -11,12 +11,14 @@ import CustomerDetail from "./components/Customers/CustomerDetail";
 import TransactionDetail from "./components/Reporting/TransactionDetail";
 import CustomerCreate from "./components/Customers/CustomerCreate";
 import InvoiceDetail from "./components/Invoices/InvoiceDetail";
+import PayMyInvoice from "./components/Invoices/PayMyInvoice";
 
 function App() {
   return (
     <React.Fragment>
       <NavBar />
       <Routes>
+        <Route path="/paymyinvoice/:invoiceId" element={<PayMyInvoice />} />
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />}></Route>
         <Route path="/vt" element={<VirtualTerminal />}></Route>

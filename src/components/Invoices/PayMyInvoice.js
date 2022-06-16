@@ -5,12 +5,37 @@ import { useState, useEffect } from "react";
 import Loader from "../UI/Loader.js";
 import ErrorBox from "../UI/ErrorBox.js";
 import classes from "./InvoicesCss/InvoiceDetail.module.css";
+import { getHostedToken } from "../../lib/requests.js";
 
-const InvoiceDetail = (props) => {
+const PayMyInvoice = (props) => {
   const params = useParams();
   const [invoice, setInvoice] = useState(null);
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(null);
+  const [token, setToken] = useState(null);
+
+  const resetToken = () => {
+    setTimeout(() => {
+      setToken(null);
+    }, 3000);
+  };
+
+  const submitHandler = async (e) => {
+    setLoader(true);
+    const response = await getHostedToken({
+      first: { value: invoice.first_name },
+      last: { value: invoice.last_name },
+      company: { value: "" },
+      street: { value: invoice.address },
+      city: { value: invoice.city },
+      state: { value: invoice.state },
+      zip: { value: invoice.zip },
+      country: { value: "" },
+      amount: { value: invoice.amount },
+    });
+    setToken(response.data.token);
+    setLoader(false);
+  };
 
   useEffect(() => {
     const getInvoice = async (id) => {
@@ -30,18 +55,7 @@ const InvoiceDetail = (props) => {
   console.log(invoice);
 
   return (
-    <section id="invoice" className={classes.invoiceDetail}>
-      <header>
-        <h2>Invoice #: {invoice && invoice.invoice_number}</h2>
-        <div>
-          <button className="btn-sea-blue">Update</button>
-          <button className="btn-dark-orange">Delete</button>
-        </div>
-        <p>
-          Pay My invoice Link:{" "}
-          {`http://localhost:3000/paymyinvoice/${params.invoiceId}`}
-        </p>
-      </header>
+    <section id="payyourinvoice" className={classes.invoiceDetail}>
       {loader && <Loader />}
       {error && <ErrorBox message={error.message} />}
       <div className={classes.details}>
@@ -58,9 +72,32 @@ const InvoiceDetail = (props) => {
         <p>City: {invoice && invoice.city}</p>
         <p>State: {invoice && invoice.state}</p>
         <p>Zip: {invoice && invoice.zip}</p>
+        <button onClick={submitHandler} className="btn-sea-blue">
+          Submit Payment
+        </button>
       </div>
+      {token && (
+        <form
+          id="send_hptoken"
+          action="https://test.authorize.net/payment/payment"
+          method="post"
+          target="load_payment"
+        >
+          <input type="hidden" name="token" value={token} />
+          <div>
+            <p>
+              Everything looks good! Please proceed to the Authorize.net secure
+              payments page below to complete your payment.
+            </p>
+          </div>
+          <button className="btn-dark-orange" onClick={resetToken}>
+            {" "}
+            Proceed To Payment
+          </button>
+        </form>
+      )}
     </section>
   );
 };
 
-export default InvoiceDetail;
+export default PayMyInvoice;

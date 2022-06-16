@@ -80,7 +80,12 @@ const NavBar = (props) => {
   );
 
   ///// check the path and set the navbar to disappear on the landing page ///////
+  ////// Have different route paths for the customer facing stuff next time ///////
   if (location.pathname === "/") {
+    navContent = <div></div>;
+  }
+
+  if (location.pathname.includes("/paymyinvoice")) {
     navContent = <div></div>;
   }
 
