@@ -9,7 +9,7 @@ const InvoiceRow = (props) => {
       <div className={classes.item}>
         <Link
           className={classes.link}
-          to={`/invoice/${invoice.invoice_number}`}
+          to={`/invoicing/${invoice.invoice_number}`}
         >
           {invoice.invoice_number}
         </Link>

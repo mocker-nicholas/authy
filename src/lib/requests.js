@@ -82,3 +82,8 @@ export const getInvoices = async () => {
   const response = await request.get("/invoice");
   return response;
 };
+
+export const getInvoiceById = async (id) => {
+  const response = await request.get(`/invoice/${id}`);
+  return response;
+};

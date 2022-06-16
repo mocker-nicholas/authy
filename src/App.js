@@ -10,6 +10,7 @@ import Customers from "./pages/Customers";
 import CustomerDetail from "./components/Customers/CustomerDetail";
 import TransactionDetail from "./components/Reporting/TransactionDetail";
 import CustomerCreate from "./components/Customers/CustomerCreate";
+import InvoiceDetail from "./components/Invoices/InvoiceDetail";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           element={<TransactionDetail />}
         ></Route>
         <Route path="/invoicing" element={<Invoicing />}></Route>
+        <Route path="/invoicing/:invoiceId" element={<InvoiceDetail />}></Route>
         <Route path="*" element={<Home />}></Route>
       </Routes>
     </React.Fragment>

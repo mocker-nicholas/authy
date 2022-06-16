@@ -3,6 +3,7 @@
 :root {
     --sky-blue: rgb(142, 202, 230);
     --sea-blue: rgb(33, 158, 188);
+    --o-sea-blue: rgb(33, 158, 188, 0.5);
     --dark-blue: rgb(2, 48, 71);
     --o-dark-blue: rgb(2, 48, 71, 0.5);
     --yellow: rgb(255, 183, 3);
@@ -64,6 +65,37 @@ cursor: pointer;
 .btn-dark-blue:disabled {
   cursor: not-allowed;
   background-color: var(--o-dark-blue);
+}
+
+.btn-sea-blue {
+  background-color: var(--sea-blue);
+  color: var(--white);
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+  transition: 0.2s all;
+  cursor: pointer;
+}
+
+.btn-sea-blue:hover {
+  background-color: var(--o-sea-blue);
+  cursor: pointer;
+}
+
+.btn-sea-blue:active {
+background-color: var(--yellow);
+cursor: pointer;
+}
+
+.btn-sea-blue:visited {
+  color: inherit;
+}
+
+.btn-sea-blue:disabled {
+  cursor: not-allowed;
+  background-color: var(--o-sea-blue);
 }
 
 .btn-dark-orange {
