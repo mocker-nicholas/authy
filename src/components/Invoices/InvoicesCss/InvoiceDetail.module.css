@@ -28,21 +28,47 @@
 
 }
 
+.invoiceDetail a {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+.invoiceDetail a:visited {
+    color: var(--white);
+    text-decoration: underline;
+}
+
 .details p {
     border-bottom: 1px solid var(--o-dark-blue);
     margin-bottom: 0.5rem;
+    padding: 0.25rem;
 }
 
 .paid {
     background-color: var(--dark-blue);
     color: var(--white);
-    padding: 8px 8px;
+    padding: 2px 8px;
     border-radius: 4px;
 }
 
 .outstanding {
     background-color: var(--orange);
     color: var(--white);
-    padding: 8px 8px;
+    padding: 2px 8px;
     border-radius: 4px;
+}
+
+.authForm {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    width: fit-content;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.authForm p {
+    margin-bottom: 1rem;
 }

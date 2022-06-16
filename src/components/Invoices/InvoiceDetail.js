@@ -27,8 +27,6 @@ const InvoiceDetail = (props) => {
 
     getInvoice(params.invoiceId);
   }, [params.invoiceId]);
-  console.log(invoice);
-
   return (
     <section id="invoice" className={classes.invoiceDetail}>
       <header>
@@ -39,16 +37,30 @@ const InvoiceDetail = (props) => {
         </div>
         <p>
           Pay My invoice Link:{" "}
-          {`http://localhost:3000/paymyinvoice/${params.invoiceId}`}
+          {
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href={`${window.location.origin}/paymyinvoice/${params.invoiceId}`}
+            >{`${window.location.origin}/paymyinvoice/${params.invoiceId}`}</a>
+          }
         </p>
       </header>
       {loader && <Loader />}
       {error && <ErrorBox message={error.message} />}
       <div className={classes.details}>
-        <h3>Invoice #: {invoice && invoice.invoice_number}</h3>
+        <h3>
+          Invoice #:{" "}
+          <span className="sea-blue">{invoice && invoice.invoice_number}</span>
+        </h3>
         <div className="sea-blue-divide"></div>
         <p>Description: {invoice && invoice.job_description}</p>
-        <p>Amount Due: {invoice && parseFloat(invoice.amount).toFixed(2)}</p>
+        <p>
+          Amount Due:{" "}
+          <span className={classes.outstanding}>
+            {invoice && `$${parseFloat(invoice.amount).toFixed(2)}`}
+          </span>
+        </p>
         <p>
           Status:{" "}
           <span>{invoice && invoice.paid ? "Paid" : "Outstanding"}</span>

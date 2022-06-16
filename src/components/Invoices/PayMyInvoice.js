@@ -82,6 +82,7 @@ const PayMyInvoice = (props) => {
           action="https://test.authorize.net/payment/payment"
           method="post"
           target="load_payment"
+          className={classes.authForm}
         >
           <input type="hidden" name="token" value={token} />
           <div>
