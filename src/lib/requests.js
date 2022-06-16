@@ -87,3 +87,8 @@ export const getInvoiceById = async (id) => {
   const response = await request.get(`/invoice/${id}`);
   return response;
 };
+
+export const deleteInvoice = async (id) => {
+  const response = await request.delete(`/invoice/${id}`);
+  return response;
+};

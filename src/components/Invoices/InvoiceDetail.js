@@ -1,6 +1,6 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import { getInvoiceById } from "../../lib/requests.js";
+import { useParams, useNavigate } from "react-router-dom";
+import { getInvoiceById, deleteInvoice } from "../../lib/requests.js";
 import { useState, useEffect } from "react";
 import Loader from "../UI/Loader.js";
 import ErrorBox from "../UI/ErrorBox.js";
@@ -11,6 +11,19 @@ const InvoiceDetail = (props) => {
   const [invoice, setInvoice] = useState(null);
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
+  const deleteHandler = async () => {
+    setLoader(true);
+    const response = await deleteInvoice(params.invoiceId);
+    if (response.data.affectedRows) {
+      setLoader(false);
+      navigate("/invoicing");
+    } else {
+      console.log(response.data);
+      setLoader(false);
+    }
+  };
 
   useEffect(() => {
     const getInvoice = async (id) => {
@@ -33,7 +46,9 @@ const InvoiceDetail = (props) => {
         <h2>Invoice #: {invoice && invoice.invoice_number}</h2>
         <div>
           <button className="btn-sea-blue">Update</button>
-          <button className="btn-dark-orange">Delete</button>
+          <button onClick={deleteHandler} className="btn-dark-orange">
+            Delete
+          </button>
         </div>
         <p>
           Pay My invoice Link:{" "}
