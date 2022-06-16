@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { getInvoiceById } from "../../lib/requests.js";
+import { getInvoiceById, markAsPaid } from "../../lib/requests.js";
 import { useState, useEffect } from "react";
 import Loader from "../UI/Loader.js";
 import ErrorBox from "../UI/ErrorBox.js";
@@ -15,6 +15,7 @@ const PayMyInvoice = (props) => {
   const [token, setToken] = useState(null);
 
   const resetToken = () => {
+    markAsPaid(params.invoiceId);
     setTimeout(() => {
       setToken(null);
     }, 3000);

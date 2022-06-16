@@ -1,3 +1,10 @@
+.invoiceDetail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .invoiceDetail header {
     background-color: var(--dark-blue);
     color: var(--white);
@@ -18,9 +25,9 @@
 }
 
 .details {
-   margin: 2rem auto 1rem auto;
+   margin: 2rem 0.5rem;
+   min-width: 50vw;
    max-width: 1000px;
-   
    border: 1px solid #f4f4f4;
    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
    border-radius: 4px;
@@ -71,4 +78,5 @@
 
 .authForm p {
     margin-bottom: 1rem;
+    max-width: 80vw;
 }

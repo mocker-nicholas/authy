@@ -97,3 +97,8 @@ export const createInvoice = async (body) => {
   const response = await request.post("/invoice/create", { ...body });
   return response;
 };
+
+export const markAsPaid = async (id) => {
+  const response = await request.post(`/invoice/paid/${id}`);
+  return response;
+};

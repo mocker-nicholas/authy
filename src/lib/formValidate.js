@@ -84,7 +84,10 @@ export const validateInput = (name, value) => {
       }
       break;
     case "street":
-      if (/[@!&$%^*]/g.test(value)) {
+      if (value.trim() === "") {
+        hasError = true;
+        error = "Street address cannot be empty";
+      } else if (/[@!&$%^*]/g.test(value)) {
         hasError = true;
         error = "Invalid Address. Avoid Special characters";
       } else {
