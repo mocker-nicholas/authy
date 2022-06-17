@@ -21,18 +21,21 @@ const Customers = () => {
   return (
     <section id="customers" className={classes.customers}>
       <header>
+        <div className="orange-divide"></div>
         <h2>Saved Customers</h2>
+        <p>Create your own customer or charge a saved customer</p>
+        <div className="orange-divide"></div>
         <Link to="create" className="btn-dark-orange">
           Create
         </Link>
       </header>
+      <div className={classes.labels}>
+        <div>Name</div>
+        <div>Payment Method</div>
+        <div>Customer Id</div>
+      </div>
       <div id="customer-table" className={classes.customerTable}>
         {loader && <Loader />}
-        <div className={classes.labels}>
-          <div>Name</div>
-          <div>Payment Method</div>
-          <div>Customer Id</div>
-        </div>
         {customerList &&
           customerList.map((customer) => {
             return (

@@ -31,10 +31,14 @@ const Invoicing = () => {
   return (
     <section id="invoicing" className={classes.invoicing}>
       <header>
-        <h2>Current Invoices</h2>
-        <Link to="create" className="btn-dark-orange">
-          Create
-        </Link>
+        <div className="orange-divide"></div>
+        <div className={classes.create}>
+          <h2>View Current Invoices</h2>
+          <Link to="create" className="btn-dark-orange">
+            Create
+          </Link>
+        </div>
+        <div className="orange-divide"></div>
       </header>
       {loader && <Loader />}
       {error && <ErrorBox message={error.error} />}
@@ -54,6 +58,7 @@ const Invoicing = () => {
           </div>
         )}
       </div>
+      <div className="spacer"></div>
     </section>
   );
 };
