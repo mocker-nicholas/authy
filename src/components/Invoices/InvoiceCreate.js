@@ -68,7 +68,7 @@ const InvoiceCreate = (props) => {
     const response = await createInvoice(body);
     if (response.data.message) {
       setLoader(false);
-      navigate(`/invoicing/${response.data.invoice_number}`);
+      navigate(`/invoice/${response.data.invoice_number}`);
     } else {
       setError({ message: "There was a problem creating your invoice" });
       setLoader(false);

@@ -18,7 +18,7 @@ const InvoiceDetail = (props) => {
     const response = await deleteInvoice(params.invoiceId);
     if (response.data.affectedRows) {
       setLoader(false);
-      navigate("/invoicing");
+      navigate("/invoice");
     } else {
       console.log(response.data);
       setLoader(false);

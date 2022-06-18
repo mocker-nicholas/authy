@@ -20,6 +20,14 @@
     padding-left: 1rem;
 }
 
+.number {
+    width: 15%;
+}
+
+.amount {
+    width: 15%;
+}
+
 .link {
     color: var(--orange);
     text-decoration: underline;
@@ -38,24 +46,24 @@
 .paid {
     background-color: var(--dark-blue);
     color: var(--white);
-    padding: 8px 8px;
+    padding: 4px 4px;
     border-radius: 4px;
 }
 
 .outstanding {
     background-color: var(--orange);
     color: var(--white);
-    padding: 8px 8px;
+    padding: 4px 4px;
     border-radius: 4px;
 }
 
 @media screen and (max-width: 600px) {
     .paid {
-        padding: 6px 6px;
+        padding: 2px 2px;
     }
     
     .outstanding {
-        padding: 6px 6px;
+        padding: 2px 2px;
     }
 
     .item {
@@ -68,13 +76,6 @@
 }
 
 @media screen and (max-width:500px) {
-    .paid {
-        padding: 2px 2px;
-    }
-    
-    .outstanding {
-        padding: 2px 2px;
-    }
 
     .item {
         font-size: 0.6rem;

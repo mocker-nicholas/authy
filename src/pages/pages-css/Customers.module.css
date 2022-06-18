@@ -50,8 +50,12 @@
 }
 
 @media screen and (max-width: 1000px) {
+    .labels {
+        margin: 0 0.5rem;
+    }
+    
     .customerTable {
-        margin: 1rem 0.5rem;
+        margin: 0rem 0.5rem 1rem 0.5rem;
     }
 }
 

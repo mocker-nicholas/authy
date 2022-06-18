@@ -47,7 +47,7 @@ const NavBar = (props) => {
         </li>
         <li>
           <NavLink
-            to="/customers"
+            to="/customer"
             className={({ isActive }) =>
               isActive ? activeStyle : navLinkStyle
             }
@@ -67,7 +67,7 @@ const NavBar = (props) => {
         </li>
         <li>
           <NavLink
-            to="/invoicing"
+            to="/invoice"
             className={({ isActive }) =>
               isActive ? activeStyle : navLinkStyle
             }

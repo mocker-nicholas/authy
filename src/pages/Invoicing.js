@@ -46,7 +46,7 @@ const Invoicing = () => {
         <div className={classes.tableHead}>
           <div className={classes.label}>Invoice #</div>
           <div className={classes.label}>Name</div>
-          <div className={classes.label}>Amount</div>
+          <div className={`${classes.label} ${classes.amount}`}>Amount</div>
           <div className={classes.label}>Status</div>
         </div>
         {invoices.length && (

@@ -29,7 +29,7 @@
 }
 
 .tableWrapper {
-    width: 98vw;
+    width: 95vw;
     max-width: 1100px;
     margin: 2rem auto 0rem auto;
     max-height: 70vh;
@@ -51,7 +51,6 @@
 
 .invoiceTable {
     height: fit-content;
-    width: 98vw;
     max-width: 1100px;
     display: flex;
     flex-direction: column;
@@ -64,6 +63,17 @@
    width: 100%;
    text-align: left;
 }
+
+.amount {
+    margin-left: 5%;
+}
+
+@media screen and (max-width: 1000px) {
+    .tableWrapper {
+        margin: 2rem 0.5rem 0rem 0.5rem;
+    }
+}
+
 
 @media screen and (max-width: 600px) {
     .tableHead {

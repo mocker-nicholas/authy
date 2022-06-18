@@ -61,7 +61,7 @@ const CustomerCreate = (props) => {
       setLoader(false);
     } else {
       setLoader(false);
-      navigate(`/customers/${response.data.customerProfileId}`);
+      navigate(`/customer/${response.data.customerProfileId}`);
     }
   };
 

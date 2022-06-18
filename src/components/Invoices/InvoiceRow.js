@@ -6,11 +6,11 @@ const InvoiceRow = (props) => {
   const invoice = props.inv;
   return (
     <div className={classes.row}>
-      <div className={classes.item}>
+      <div className={`${classes.item} ${classes.number}`}>
         <p>
           <Link
             className={classes.link}
-            to={`/invoicing/${invoice.invoice_number}`}
+            to={`/invoice/${invoice.invoice_number}`}
           >
             {invoice.invoice_number}
           </Link>
@@ -19,8 +19,8 @@ const InvoiceRow = (props) => {
       <div className={classes.item}>
         <p>{`${invoice.first_name} ${invoice.last_name}`}</p>
       </div>
-      <div className={classes.item}>
-        <p>${invoice.amount}</p>
+      <div className={`${classes.item} ${classes.amount}`}>
+        <p>${parseFloat(invoice.amount).toFixed(2)}</p>
       </div>
       <div className={classes.item}>
         <p>
