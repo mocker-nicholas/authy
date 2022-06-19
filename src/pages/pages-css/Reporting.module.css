@@ -39,6 +39,9 @@
   padding: 0.25rem;
   margin-top: 4px;
   width: calc(90vw / 2);
+}
+
+.reporting select {
   cursor: pointer;
 }
 

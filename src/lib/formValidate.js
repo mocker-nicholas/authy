@@ -20,9 +20,9 @@ export const validateInput = (name, value) => {
       if (value.trim() === "") {
         hasError = true;
         error = "Description cannot be empty";
-      } else if (!/^[a-zA-Z ]+$/.test(value)) {
+      } else if (!/^[\w .,!?]+$/.test(value)) {
         hasError = true;
-        error = "Invalid Description. Avoid Special characters";
+        error = "Only letters, numbers, periods, and commas allowed";
       } else {
         hasError = false;
         error = "";
