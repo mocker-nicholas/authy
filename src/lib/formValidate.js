@@ -23,6 +23,9 @@ export const validateInput = (name, value) => {
       } else if (!/^[\w .,!?]+$/.test(value)) {
         hasError = true;
         error = "Only letters, numbers, periods, and commas allowed";
+      } else if (value.length > 250) {
+        hasError = true;
+        error = "Description limit is 250 characters";
       } else {
         hasError = false;
         error = "";

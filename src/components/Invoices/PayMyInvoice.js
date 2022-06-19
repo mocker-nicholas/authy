@@ -4,7 +4,7 @@ import { getInvoiceById, markAsPaid } from "../../lib/requests.js";
 import { useState, useEffect } from "react";
 import Loader from "../UI/Loader.js";
 import ErrorBox from "../UI/ErrorBox.js";
-import classes from "./InvoicesCss/InvoiceDetail.module.css";
+import classes from "./InvoicesCss/PayMyInvoice.module.css";
 import { getHostedToken } from "../../lib/requests.js";
 
 const PayMyInvoice = (props) => {
@@ -56,27 +56,61 @@ const PayMyInvoice = (props) => {
   console.log(invoice);
 
   return (
-    <section id="payyourinvoice" className={classes.invoiceDetail}>
+    <section id="payyourinvoice" className={classes.invoice}>
       {loader && <Loader />}
       {error && <ErrorBox message={error.message} />}
-      <div className={classes.details}>
+      <div className={classes.invoiceContainer}>
+        <div className={classes.top}></div>
         <h3>Invoice #: {invoice && invoice.invoice_number}</h3>
         <div className="sea-blue-divide"></div>
-        <p>Description: {invoice && invoice.job_description}</p>
-        <p>Amount Due: {invoice && parseFloat(invoice.amount).toFixed(2)}</p>
-        <p>
-          Status:{" "}
-          <span>{invoice && invoice.paid ? "Paid" : "Outstanding"}</span>
-        </p>
-        <p>Name: {invoice && `${invoice.first_name} ${invoice.last_name}`}</p>
-        <p>Billing Address: {invoice && invoice.address}</p>
-        <p>City: {invoice && invoice.city}</p>
-        <p>State: {invoice && invoice.state}</p>
-        <p>Zip: {invoice && invoice.zip}</p>
-        <button onClick={submitHandler} className="btn-sea-blue">
-          Submit Payment
-        </button>
+        <div className={classes.invoiceBlock}>
+          <div className={classes.address}>
+            <h4>Business User Inc.</h4>
+            <p>123 Drury Lane</p>
+            <p>Houston</p>
+            <p>Texas</p>
+            <p>99999</p>
+          </div>
+          <div className={classes.address}>
+            <h4>
+              Bill To: {invoice && `${invoice.first_name} ${invoice.last_name}`}
+            </h4>
+            <p>Billing Address: {invoice && invoice.address}</p>
+            <p>City: {invoice && invoice.city}</p>
+            <p>State: {invoice && invoice.state}</p>
+            <p>Zip: {invoice && invoice.zip}</p>
+          </div>
+          <div className={classes.amount}>
+            <h4 className={classes.due}>
+              Amount Due:{" "}
+              <span className={classes.total}>
+                {invoice && parseFloat(invoice.amount).toFixed(2)}
+              </span>
+            </h4>
+            <p>
+              Status:{" "}
+              <span
+                className={
+                  invoice && invoice.paid ? classes.paid : classes.outstanding
+                }
+              >
+                {invoice && invoice && invoice.paid ? "Paid" : "Outstanding"}
+              </span>
+            </p>
+          </div>
+        </div>
+        <div className="sea-blue-divide"></div>
+        <div className={classes.description}>
+          <h4>Job Description: </h4>
+          <p>{invoice && invoice.job_description}</p>
+        </div>
+        {!token && (
+          <button onClick={submitHandler} className="btn-sea-blue">
+            Pay Invoice
+          </button>
+        )}
       </div>
+
       {token && (
         <form
           id="send_hptoken"

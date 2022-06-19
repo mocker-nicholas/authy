@@ -1,0 +1,93 @@
+.invoice {
+    color: var(--dark-blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+.top {
+    background-color: var(--dark-blue);
+    height: 40px;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.invoiceContainer {
+    width: 95vw;
+    max-width: 1000px;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.invoiceBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.due {
+    margin-bottom: 0.5rem;
+}
+
+.total {
+    color: var(--sea-blue);
+    text-decoration: underline;
+}
+
+.paid {
+    background-color: var(--dark-blue);
+    padding: 4px;
+    border-radius: 4px;
+    color: var(--white)
+}
+
+.outstanding {
+    background-color: var(--orange);
+    padding: 4px;
+    border-radius: 4px;
+    color: var(--white)
+}
+
+.description {
+    word-wrap: break-word;
+    margin-bottom: 1rem;
+}
+
+.authForm {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+.authForm p {
+    margin-bottom: 0.5rem;
+}
+
+.authForm button {
+    max-width: 300px;
+}
+
+@media screen and (max-width: 600px) {
+    .invoice {
+        margin: 1rem 0;
+    }
+    .invoiceContainer {
+        padding: 0.5rem;
+    }
+    .invoiceBlock {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}

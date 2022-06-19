@@ -49,6 +49,7 @@
     border-bottom: 1px solid var(--o-dark-blue);
     margin-bottom: 0.5rem;
     padding: 0.25rem;
+    word-wrap: break-word;
 }
 
 .paid {
