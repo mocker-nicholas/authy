@@ -40,14 +40,14 @@
 
 .paid {
     background-color: var(--dark-blue);
-    padding: 4px;
+    padding: 10px;
     border-radius: 4px;
     color: var(--white)
 }
 
 .outstanding {
     background-color: var(--orange);
-    padding: 4px;
+    padding: 10px;
     border-radius: 4px;
     color: var(--white)
 }
