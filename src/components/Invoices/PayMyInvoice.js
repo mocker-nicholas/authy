@@ -42,7 +42,7 @@ const PayMyInvoice = (props) => {
     const getInvoice = async (id) => {
       setLoader(true);
       const data = await getInvoiceById(id);
-      if (data.data[0].invoice_number) {
+      if (data.data[0]) {
         setInvoice(data.data[0]);
         setLoader(false);
       } else {
