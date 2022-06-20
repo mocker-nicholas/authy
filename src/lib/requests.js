@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseUrl = "https://dolphin-app-rvmeg.ondigitalocean.app/api";
-/// const devUrl = "http://localhost:8080/api";
+// const devUrl = "http://localhost:8080/api";
 // prod url = https://dolphin-app-rvmeg.ondigitalocean.app/api
 
 export const request = axios.create({
