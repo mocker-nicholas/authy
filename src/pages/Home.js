@@ -2,7 +2,7 @@ import { React, useReducer, useEffect, useState } from "react";
 import classes from "./pages-css/Home.module.css";
 import TransGraph from "../components/Home/TransGraph";
 import DailyTran from "../components/Home/DailyTran";
-import { getDailyTotal, getStats } from "../lib/requests";
+import { getDailyTotal, lastMonthTotal, getStats } from "../lib/requests";
 import { last7 } from "../lib/util";
 import Loader from "../components/UI/Loader";
 
@@ -12,6 +12,8 @@ const initialStatsState = {
   weekTotal: "0.00",
   todaysTotal: "0.00",
   dailyNum: "0",
+  lastMonthDates: [],
+  lastMonthstotals: null,
 };
 
 const statsReducer = (state, action) => {
@@ -39,6 +41,16 @@ const statsReducer = (state, action) => {
     };
   }
 
+  if (action.type === "MONTH") {
+    return {
+      ...state,
+      lastMonthDates: action.val.map((day) => day.date),
+      lastMonthTotals: action.val.map((day) =>
+        parseFloat(day.amount).toFixed(2)
+      ),
+    };
+  }
+
   return initialStatsState;
 };
 
@@ -59,6 +71,15 @@ const Home = (props) => {
       dispatch({ type: "LAST_7", val: response });
     };
 
+    const prevMonth = async (body) => {
+      const response = await lastMonthTotal(body);
+      dispatch({ type: "MONTH", val: response });
+    };
+
+    const year = new Date().getFullYear();
+    const month = new Date().getUTCMonth() - 1;
+
+    prevMonth({ year: year, month: month });
     stats();
     getTotal();
   }, []);
@@ -78,11 +99,19 @@ const Home = (props) => {
       </section>
       <section className={classes.graph}>
         <header>
-          <h2>Weekly Settlements</h2>
+          <h2>Settlement History</h2>
         </header>
 
         <div className={classes.graphContainer}>
+          <h3>Past Week</h3>
           <TransGraph dates={state.dates} totals={state.totals} />
+        </div>
+        <div className={classes.graphContainer}>
+          <h3>Previous Month</h3>
+          <TransGraph
+            dates={state.lastMonthDates}
+            totals={state.lastMonthTotals}
+          />
         </div>
       </section>
       <div className={`spacer ${classes.hide}`}></div>

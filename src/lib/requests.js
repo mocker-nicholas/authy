@@ -51,6 +51,12 @@ export const getDailyTotal = async () => {
   return data;
 };
 
+export const lastMonthTotal = async (body) => {
+  const response = await request.post("/reporting/month", { ...body });
+  const data = response.data;
+  return data;
+};
+
 export const getHostedToken = async (body) => {
   const response = await request.post("/vt/hosted", { ...body });
   return response;
