@@ -102,7 +102,7 @@ const Home = (props) => {
           <h2>Settlement History</h2>
         </header>
 
-        <div className={classes.graphContainer}>
+        <div className={`${classes.graphContainer} ${classes.mb}`}>
           <h3>Past Week</h3>
           <TransGraph dates={state.dates} totals={state.totals} />
         </div>
