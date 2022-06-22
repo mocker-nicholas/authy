@@ -1,15 +1,9 @@
 import axios from "axios";
-import dotenv from "dotenv";
-dotenv.config();
 
-let baseUrl;
-if (process.env.DEV === "DEV") {
-  baseUrl = "http://localhost:8080/api";
-} else {
-  baseUrl = "https://dolphin-app-rvmeg.ondigitalocean.app/api";
-}
+const baseUrl = "https://dolphin-app-rvmeg.ondigitalocean.app/api";
+// const devUrl = "http://localhost:8080/api";
+// prod url = https://dolphin-app-rvmeg.ondigitalocean.app/api
 
-console.log(baseUrl);
 export const request = axios.create({
   withCredentials: true,
   baseURL: baseUrl,
