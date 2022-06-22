@@ -12,7 +12,7 @@ const Landing = () => {
     <React.Fragment>
       <main className={classes.landing}>
         <header>
-          <Link to="/home" className="btn-dark-blue">
+          <Link to="/home" className="btn-dark-blue" data-cy="app-button">
             Continue to App
           </Link>
         </header>
@@ -21,16 +21,19 @@ const Landing = () => {
             svg={<img src={mobile} alt="Mobile Friendly"></img>}
             title="Mobile Friendly"
             content="Take payments from any device"
+            cy="card-1"
           />
           <ContentCard
             svg={<img src={compliant} alt="PCI Compliant"></img>}
             title="Secure"
             content="Stay PCI compliant with hosted payments"
+            cy="card-2"
           />
           <ContentCard
             svg={<img src={payment} alt="Proactive outreach"></img>}
             title="Collect"
             content="Reach your customers in more ways"
+            cy="card-3"
           />
         </section>
         <Footer />

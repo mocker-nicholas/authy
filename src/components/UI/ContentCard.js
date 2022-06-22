@@ -3,7 +3,7 @@ import classes from "./UiCss/ContentCard.module.css";
 
 const ContentCard = (props) => {
   return (
-    <div className={classes.card}>
+    <div className={classes.card} data-cy={props.cy}>
       <div>{props.svg}</div>
       <div className="sea-blue-divide"></div>
       <h3>{props.title}</h3>

@@ -85,7 +85,7 @@ const Home = (props) => {
   }, []);
 
   return (
-    <main className={classes.home}>
+    <main className={classes.home} data-cy="home-content">
       {loader && <Loader />}
       <section className={classes.summary}>
         <header>
@@ -102,11 +102,14 @@ const Home = (props) => {
           <h2>Settlement History</h2>
         </header>
 
-        <div className={`${classes.graphContainer} ${classes.mb}`}>
+        <div
+          className={`${classes.graphContainer} ${classes.mb}`}
+          data-cy="graph-1"
+        >
           <h3>Past Week</h3>
           <TransGraph dates={state.dates} totals={state.totals} />
         </div>
-        <div className={classes.graphContainer}>
+        <div className={classes.graphContainer} data-cy="graph-2">
           <h3>Previous Month</h3>
           <TransGraph
             dates={state.lastMonthDates}
