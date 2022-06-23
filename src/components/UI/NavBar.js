@@ -41,6 +41,7 @@ const NavBar = (props) => {
             className={({ isActive }) =>
               isActive ? activeStyle : navLinkStyle
             }
+            data-cy="vtnavlink"
           >
             <i className="fa-solid fa-credit-card"></i>
           </NavLink>
@@ -51,6 +52,7 @@ const NavBar = (props) => {
             className={({ isActive }) =>
               isActive ? activeStyle : navLinkStyle
             }
+            data-cy="customernavlink"
           >
             <i className="fa-solid fa-people-group"></i>
           </NavLink>
@@ -61,6 +63,7 @@ const NavBar = (props) => {
             className={({ isActive }) =>
               isActive ? activeStyle : navLinkStyle
             }
+            data-cy="reportingnavlink"
           >
             <i className="fa-solid fa-chart-column"></i>
           </NavLink>
@@ -71,6 +74,7 @@ const NavBar = (props) => {
             className={({ isActive }) =>
               isActive ? activeStyle : navLinkStyle
             }
+            data-cy="invoicenavlink"
           >
             <i className="fa-solid fa-envelope"></i>
           </NavLink>

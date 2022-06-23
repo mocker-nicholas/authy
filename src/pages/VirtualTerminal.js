@@ -118,13 +118,14 @@ const VirtualTerminal = (props) => {
             type="button"
             className="btn-dark-orange"
             onClick={generateHandler}
+            data-cy="generatetransbtn"
           >
             Generate Random Transaction
           </button>
         </header>
       )}
       {!token && (
-        <form>
+        <form data-cy="vtform">
           {loader && <Loader />}
           <FormGroup
             for="amount"
@@ -137,6 +138,7 @@ const VirtualTerminal = (props) => {
             onChange={inputChangeHandler}
             onBlur={onBlurHandler}
             value={formState.amount.value}
+            cy="amount-cy"
             errorText={formState.amount.hasError ? formState.amount.error : ""}
           />
           <div className={`${classes.names} w100`}>
@@ -225,7 +227,7 @@ const VirtualTerminal = (props) => {
                   ? `w100 ${classes.formGroup} red`
                   : `${classes.formGroup} w100`
               }
-              label="Zipcode"
+              label="Zip Code"
               onChange={inputChangeHandler}
               value={formState.zip.value}
               errorText={formState.zip.hasError ? formState.zip.error : ""}
@@ -247,6 +249,7 @@ const VirtualTerminal = (props) => {
             onClick={submitHandler}
             disabled={!formState.isBodyValid}
             className="btn-dark-orange"
+            data-cy="vtsubmitbtn"
           >
             Submit
           </button>

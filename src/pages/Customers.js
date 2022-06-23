@@ -25,7 +25,7 @@ const Customers = () => {
         <h2>Saved Customers</h2>
         <p>Create your own customer or charge a saved customer</p>
         <div className="orange-divide"></div>
-        <Link to="create" className="btn-dark-orange">
+        <Link to="create" className="btn-dark-orange" data-cy="customerlink">
           Create
         </Link>
       </header>

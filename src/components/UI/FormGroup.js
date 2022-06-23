@@ -15,6 +15,7 @@ const FormGroup = React.forwardRef((props, ref) => {
           onBlur={props.onBlur}
           value={props.value}
           disabled={props.disabled}
+          data-cy={props.cy}
         />
       </div>
       <p>{props.errorText}</p>

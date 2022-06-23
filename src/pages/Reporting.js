@@ -63,7 +63,7 @@ const Reporting = () => {
 
   return (
     <section id="reporting" className={classes.reporting}>
-      <form>
+      <form data-cy="reportingform">
         <div className={classes.inputs}>
           <div>
             <div>
@@ -71,6 +71,7 @@ const Reporting = () => {
             </div>
             <input
               id="startDate"
+              data-cy="startDate"
               type="date"
               ref={firstDate}
               onChange={dateChangeHandler}
@@ -83,6 +84,7 @@ const Reporting = () => {
             </div>
             <select
               id="status"
+              data-cy="status"
               defaultValue={searchBody.status}
               ref={status}
               onChange={statusChangeHandler}
@@ -109,6 +111,7 @@ const Reporting = () => {
         <button
           type="button"
           className="btn-dark-orange"
+          data-cy="prevPage"
           onClick={prevPageHandler}
           disabled={searchBody.offset === 1 && true}
         >
@@ -117,6 +120,7 @@ const Reporting = () => {
         <button
           type="button"
           className="btn-dark-orange"
+          data-cy="nextPage"
           onClick={nextPageHandler}
           disabled={
             tranData !== undefined && tranData.length !== 20 ? true : false
