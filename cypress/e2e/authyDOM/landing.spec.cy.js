@@ -96,6 +96,14 @@ describe("Navigation to customers works correctly", () => {
         expect(text).to.equal("Create");
       });
   });
+
+  it("Customer rows contain href to customer page", () => {
+    cy.get('[data-cy="detail"]').then((detail) => {
+      cy.wrap(detail).each((cust) => {
+        cy.wrap(cust).should("have.attr", "href").and("contain", "/customer/");
+      });
+    });
+  });
 });
 
 // Customer create link navigates to the correct form
@@ -113,25 +121,42 @@ describe("Navigation to reporting works correctly", () => {
     cy.url().should("eq", "http://localhost:3000/reporting");
   });
 
+  // Check the date and select inputs for the correct values and functionality
   describe("DOM elements function correctly", () => {
-    it("The date picker works", () => {
-      cy.get('[data-cy="startDate"]').then((input) => {
-        cy.wrap(input).click();
-        cy.wrap(input).invoke("attr", "value", "2022-06-08");
-      });
-      cy.get('[data-cy="status"]').then((input) => {
-        cy.wrap(input)
-          .invoke("attr", "value", "settled")
-          .invoke("prop", "value")
-          .should("contain", "settled");
-      });
-    });
-
+    // Make sure page buttons are acting ok
     it("pagination works", () => {
       cy.get('[data-cy="nextPage"]').click();
       cy.get('[data-cy="nextPage"]').should("contain", "Page 3");
       cy.get('[data-cy="prevPage"]').click();
       cy.get('[data-cy="prevPage"]').should("contain", "Page 0");
+    });
+
+    // Check the date and status val att work correctly
+    it("The date picker and status select works", () => {
+      cy.get('[data-cy="startDate"]').then((input) => {
+        cy.wrap(input).click();
+        cy.wrap(input).invoke("attr", "value", "2022-06-08").type("2022-06-08");
+      });
+      cy.get('[data-cy="status"]').then((input) => {
+        cy.wrap(input)
+          .select("settled")
+          .invoke("prop", "value")
+          .should("contain", "settled");
+      });
+    });
+
+    describe("The search button is active after date and status are selected", () => {
+      it("The button is not disabled", () => {
+        cy.get('[data-cy="reportingsubmitbtn"]').should("not.be.disabled");
+      });
+      it("It sends request to search for transactions", () => {
+        cy.get('[data-cy="reportingsubmitbtn"]').click();
+        cy.wait(2000);
+      });
+      it("returns settled transactions", () => {
+        cy.get(".green").should("exist");
+        cy.get(".green").should("contain", "Settled");
+      });
     });
   });
 });
@@ -146,4 +171,4 @@ describe("Navigation to reporting works correctly", () => {
 // You can chain these traversal commands
 // once you call .then() on something, it becomes a jquery object, so we have to use different assertions from chai rather than cypress
 // To prevent the above you can use cy.wrap() to wrap your var, and then you can use cypress assertions again
-//
+// .should('have.css', 'background-color', 'black')

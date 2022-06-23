@@ -100,6 +100,7 @@ const Reporting = () => {
             type="button"
             onClick={submitFormHandler}
             disabled={!formReady.date || !formReady.status}
+            data-cy="reportingsubmitbtn"
           >
             Search
           </button>

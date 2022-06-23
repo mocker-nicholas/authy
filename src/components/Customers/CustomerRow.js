@@ -17,7 +17,11 @@ const CustomerRow = (props) => {
           : "-"}
       </div>
       <div className={classes.item}>
-        <Link className={classes.detail} to={`${profile.customerProfileId}`}>
+        <Link
+          data-cy="detail"
+          className={classes.detail}
+          to={`${profile.customerProfileId}`}
+        >
           {profile.customerProfileId}
         </Link>
       </div>
