@@ -31,6 +31,7 @@ const NavBar = (props) => {
             className={({ isActive }) =>
               isActive ? activeStyle : navLinkStyle
             }
+            data-cy="homenavlink"
           >
             <i className="fa-solid fa-house"></i>
           </NavLink>
