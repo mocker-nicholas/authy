@@ -157,6 +157,21 @@ describe("Navigation to reporting works correctly", () => {
         cy.get(".green").should("exist");
         cy.get(".green").should("contain", "Settled");
       });
+      it("Info Link brings you to transaction page", () => {
+        cy.get("tbody")
+          .contains("tr", "Grace")
+          .then((row) => {
+            cy.wrap(row)
+              .find("i")
+              .parent()
+              .invoke("attr", "href")
+              .then((href) => {
+                const detailHref = href;
+                cy.wrap(row).find("i").click();
+                cy.url().should("eq", `http://localhost:3000${detailHref}`);
+              });
+          });
+      });
     });
   });
 });
