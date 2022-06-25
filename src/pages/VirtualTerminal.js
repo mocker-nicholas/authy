@@ -153,6 +153,7 @@ const VirtualTerminal = (props) => {
               onChange={inputChangeHandler}
               value={formState.first.value}
               errorText={formState.first.hasError ? formState.first.error : ""}
+              cy="first-cy"
             />
             <FormGroup
               for="last"
@@ -165,6 +166,7 @@ const VirtualTerminal = (props) => {
               onChange={inputChangeHandler}
               value={formState.last.value}
               errorText={formState.last.hasError ? formState.last.error : ""}
+              cy="last-cy"
             />
           </div>
           <FormGroup
@@ -180,6 +182,7 @@ const VirtualTerminal = (props) => {
             errorText={
               formState.company.hasError ? formState.company.error : ""
             }
+            cy="company-cy"
           />
           <FormGroup
             for="street"
@@ -192,6 +195,7 @@ const VirtualTerminal = (props) => {
             onChange={inputChangeHandler}
             value={formState.street.value}
             errorText={formState.street.hasError ? formState.street.error : ""}
+            cy="street-cy"
           />
           <div className={`${classes.cityState} w100`}>
             <FormGroup
@@ -205,6 +209,7 @@ const VirtualTerminal = (props) => {
               onChange={inputChangeHandler}
               value={formState.city.value}
               errorText={formState.city.hasError ? formState.city.error : ""}
+              cy="city-cy"
             />
             <FormGroup
               for="state"
@@ -217,6 +222,7 @@ const VirtualTerminal = (props) => {
               onChange={inputChangeHandler}
               value={formState.state.value}
               errorText={formState.state.hasError ? formState.state.error : ""}
+              cy="state-cy"
             />
           </div>
           <div className={`${classes.zipCountry} w100`}>
@@ -231,6 +237,7 @@ const VirtualTerminal = (props) => {
               onChange={inputChangeHandler}
               value={formState.zip.value}
               errorText={formState.zip.hasError ? formState.zip.error : ""}
+              cy="zip-cy"
             />
             <FormGroup
               for="country"
@@ -242,6 +249,7 @@ const VirtualTerminal = (props) => {
                 formState.country.hasError ? formState.country.error : ""
               }
               disabled={true}
+              cy="country-cy"
             />
           </div>
           <button

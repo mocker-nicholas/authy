@@ -1,4 +1,5 @@
 import { navigateTo } from "../../support/page_objects/navigationPage.js";
+import { onVtFormPage } from "../../support/page_objects/vtFormPage.js";
 
 describe("Nagivation to vt works correctly", () => {
   it("Loads virtual terminal page", () => {
@@ -42,6 +43,8 @@ describe("Nagivation to vt works correctly", () => {
         expect(stateLabel).to.equal("State");
         expect(zipLabel).to.equal("Zip Code");
         expect(countryLabel).to.equal("Country");
+
+        onVtFormPage.fillForm();
 
         cy.get('[data-cy="vtsubmitbtn"]').contains("Submit");
       });
