@@ -52,8 +52,9 @@ To check out Authy, you can clone a copy for yourself, or you can go [here]('htt
 
 ## Status
 
-- There are certianly some styling and validation updates coming soon, beyond that Authy will soon have expanded functionality as well.
-- I will be adding the ability to generate a link that can be sent out and used to make a payment from any device. The link will utilize the authorize.net accept hosted redirect workflow.
+- COMPLETED 6/20/2022 - I will be adding the ability to generate a link that can be sent out and used to make a payment from any device. The link will utilize the authorize.net accept hosted redirect workflow.
+
+- Coming soon!: Sort functionality for customer and invoice tables!
 
 ## Bugs and feature requests
 

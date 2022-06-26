@@ -44,10 +44,18 @@ describe("Nagivation to vt works correctly", () => {
         expect(zipLabel).to.equal("Zip Code");
         expect(countryLabel).to.equal("Country");
 
-        onVtFormPage.fillForm();
-
         cy.get('[data-cy="vtsubmitbtn"]').contains("Submit");
       });
+    });
+
+    it("Submit button is disabled with errors", () => {
+      onVtFormPage.fillFormErrors();
+      cy.get('[data-cy="vtsubmitbtn"]').should("be.disabled");
+    });
+
+    it("Submit button is enabled with no errors", () => {
+      onVtFormPage.fillForm();
+      cy.get('[data-cy="vtsubmitbtn"]').should("be.enabled");
     });
   });
 });

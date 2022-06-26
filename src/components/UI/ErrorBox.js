@@ -5,12 +5,14 @@ import classes from "./UiCss/ErrorBox.module.css";
 
 const ErrorBox = (props) => {
   return (
-    <div className={classes.errorBox}>
+    <div className={classes.errorBox} data-cy="errorbox">
       <header>
         <p>Sorry about that...</p>
       </header>
       <div>
-        <p className={classes.message}>{props.message}</p>
+        <p className={classes.message} data-cy="errormessage">
+          {props.message}
+        </p>
       </div>
       <div className={classes.button}>
         {!props.clear && (

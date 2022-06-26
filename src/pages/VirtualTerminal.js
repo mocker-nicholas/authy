@@ -277,7 +277,11 @@ const VirtualTerminal = (props) => {
               payments page below to complete your payment.
             </p>
           </div>
-          <button className="btn-dark-orange" onClick={resetToken}>
+          <button
+            className="btn-dark-orange"
+            onClick={resetToken}
+            data-cy="gottoauthbtn"
+          >
             {" "}
             Proceed To Payment
           </button>
