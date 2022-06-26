@@ -86,7 +86,7 @@ const CustomerCreate = (props) => {
         </header>
       )}
 
-      <form>
+      <form data-cy="customercreateform">
         {loader && <Loader />}
         <div className="w100">
           <FormGroup
@@ -102,6 +102,7 @@ const CustomerCreate = (props) => {
             errorText={
               formState.description.hasError ? formState.description.error : ""
             }
+            cy="description-cy"
           />
           <FormGroup
             for="first"
@@ -114,6 +115,7 @@ const CustomerCreate = (props) => {
             onChange={inputChangeHandler}
             value={formState.first.value}
             errorText={formState.first.hasError ? formState.first.error : ""}
+            cy="first-cy"
           />
           <FormGroup
             for="last"
@@ -126,6 +128,7 @@ const CustomerCreate = (props) => {
             onChange={inputChangeHandler}
             value={formState.last.value}
             errorText={formState.last.hasError ? formState.last.error : ""}
+            cy="last-cy"
           />
           <FormGroup
             for="email"
@@ -138,6 +141,7 @@ const CustomerCreate = (props) => {
             onChange={inputChangeHandler}
             value={formState.email.value}
             errorText={formState.email.hasError ? formState.email.error : ""}
+            cy="email-cy"
           />
         </div>
         <FormGroup
@@ -151,6 +155,7 @@ const CustomerCreate = (props) => {
           onChange={inputChangeHandler}
           value={formState.company.value}
           errorText={formState.company.hasError ? formState.company.error : ""}
+          cy="company-cy"
         />
         <FormGroup
           for="street"
@@ -163,6 +168,7 @@ const CustomerCreate = (props) => {
           onChange={inputChangeHandler}
           value={formState.street.value}
           errorText={formState.street.hasError ? formState.street.error : ""}
+          cy="street-cy"
         />
         <div className={`${classes.cityState} w100`}>
           <FormGroup
@@ -176,6 +182,7 @@ const CustomerCreate = (props) => {
             onChange={inputChangeHandler}
             value={formState.city.value}
             errorText={formState.city.hasError ? formState.city.error : ""}
+            cy="city-cy"
           />
           <FormGroup
             for="state"
@@ -188,6 +195,7 @@ const CustomerCreate = (props) => {
             onChange={inputChangeHandler}
             value={formState.state.value}
             errorText={formState.state.hasError ? formState.state.error : ""}
+            cy="state-cy"
           />
         </div>
         <div className={`${classes.zipCountry} w100`}>
@@ -202,6 +210,7 @@ const CustomerCreate = (props) => {
             onChange={inputChangeHandler}
             value={formState.zip.value}
             errorText={formState.zip.hasError ? formState.zip.error : ""}
+            cy="zip-cy"
           />
           <FormGroup
             for="country"
@@ -220,6 +229,7 @@ const CustomerCreate = (props) => {
           onClick={submitHandler}
           disabled={!formState.isBodyValid}
           className="btn-dark-orange"
+          data-cy="customercreatebtn"
         >
           Submit
         </button>

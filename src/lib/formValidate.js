@@ -77,7 +77,7 @@ export const validateInput = (name, value) => {
       if (value.trim() === "") {
         hasError = true;
         error = "Company name cannot be empty";
-      } else if (/[#$%^*]/g.test(value)) {
+      } else if (/[#$%^*{}]/g.test(value)) {
         hasError = true;
         error =
           "Only '&', '_', '-', '@', and '!' are allowed as special characters";
