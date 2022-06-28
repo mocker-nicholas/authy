@@ -73,7 +73,6 @@ const InvoiceCreate = (props) => {
       setError({ message: "There was a problem creating your invoice" });
       setLoader(false);
     }
-    console.log(response.data);
   };
 
   // Get new reducer state values and validate values, display errors
@@ -111,7 +110,7 @@ const InvoiceCreate = (props) => {
           <div className="orange-divide"></div>
         </header>
       )}
-      <form>
+      <form data-cy="invoiceForm">
         {loader && <Loader />}
         <FormGroup
           for="amount"
@@ -125,6 +124,7 @@ const InvoiceCreate = (props) => {
           onBlur={onBlurHandler}
           value={formState.amount.value}
           errorText={formState.amount.hasError ? formState.amount.error : ""}
+          cy="amount"
         />
         <FormGroup
           for="description"
@@ -139,6 +139,7 @@ const InvoiceCreate = (props) => {
           errorText={
             formState.description.hasError ? formState.description.error : ""
           }
+          cy="description"
         />
         <div className={`${classes.names} w100`}>
           <FormGroup
@@ -152,6 +153,7 @@ const InvoiceCreate = (props) => {
             onChange={inputChangeHandler}
             value={formState.first.value}
             errorText={formState.first.hasError ? formState.first.error : ""}
+            cy="first"
           />
           <FormGroup
             for="last"
@@ -164,6 +166,7 @@ const InvoiceCreate = (props) => {
             onChange={inputChangeHandler}
             value={formState.last.value}
             errorText={formState.last.hasError ? formState.last.error : ""}
+            cy="last"
           />
         </div>
         <FormGroup
@@ -177,6 +180,7 @@ const InvoiceCreate = (props) => {
           onChange={inputChangeHandler}
           value={formState.street.value}
           errorText={formState.street.hasError ? formState.street.error : ""}
+          cy="street"
         />
         <div className={`${classes.cityState} w100`}>
           <FormGroup
@@ -190,6 +194,7 @@ const InvoiceCreate = (props) => {
             onChange={inputChangeHandler}
             value={formState.city.value}
             errorText={formState.city.hasError ? formState.city.error : ""}
+            cy="city"
           />
           <FormGroup
             for="state"
@@ -202,6 +207,8 @@ const InvoiceCreate = (props) => {
             onChange={inputChangeHandler}
             value={formState.state.value}
             errorText={formState.state.hasError ? formState.state.error : ""}
+            city="state"
+            cy="state"
           />
         </div>
         <div className={`${classes.zipCountry} w100`}>
@@ -216,6 +223,7 @@ const InvoiceCreate = (props) => {
             onChange={inputChangeHandler}
             value={formState.zip.value}
             errorText={formState.zip.hasError ? formState.zip.error : ""}
+            cy="zip"
           />
         </div>
         <button
@@ -223,6 +231,7 @@ const InvoiceCreate = (props) => {
           onClick={submitHandler}
           disabled={!formState.isBodyValid}
           className="btn-dark-orange"
+          data-cy="submitbtn"
         >
           Submit
         </button>

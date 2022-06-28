@@ -34,7 +34,7 @@ const Invoicing = () => {
         <div className="orange-divide"></div>
         <div className={classes.create}>
           <h2>View Current Invoices</h2>
-          <Link to="create" className="btn-dark-orange">
+          <Link to="create" className="btn-dark-orange" data-cy="createbtn">
             Create
           </Link>
         </div>

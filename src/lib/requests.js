@@ -85,7 +85,7 @@ export const chargeCustomer = async (body) => {
 };
 
 export const getInvoices = async () => {
-  const response = await request.get("/invoice");
+  const response = await request.post("/invoice");
   return response;
 };
 

@@ -1,43 +1,43 @@
 export class vtFormPage {
   fillForm = () => {
     cy.get('[data-cy="vtform"]').then((vtForm) => {
-      const amountLabel = vtForm.find('[data-cy="amount-cy"]');
-      const firstLabel = vtForm.find('[data-cy="first-cy"]');
-      const lastLabel = vtForm.find('[data-cy="last-cy"]');
-      const companyLabel = vtForm.find('[data-cy="company-cy"]');
-      const streetLabel = vtForm.find('[data-cy="street-cy"]');
-      const cityLabel = vtForm.find('[data-cy="city-cy"]');
-      const stateLabel = vtForm.find('[data-cy="state-cy"]');
-      const zipLabel = vtForm.find('[data-cy="zip-cy"]');
-      cy.wrap(amountLabel).clear().type("15");
-      cy.wrap(firstLabel).clear().type("QA");
-      cy.wrap(lastLabel).clear().type("Test");
-      cy.wrap(companyLabel).clear().type("Pie Company");
-      cy.wrap(streetLabel).clear().type("777 168th St");
-      cy.wrap(cityLabel).clear().type("Lincoln");
-      cy.wrap(stateLabel).clear().type("NE");
-      cy.wrap(zipLabel).clear().type("12345");
+      const amountInput = vtForm.find('[data-cy="amount-cy"]');
+      const firstInput = vtForm.find('[data-cy="first-cy"]');
+      const lastInput = vtForm.find('[data-cy="last-cy"]');
+      const companyInput = vtForm.find('[data-cy="company-cy"]');
+      const streetInput = vtForm.find('[data-cy="street-cy"]');
+      const cityInput = vtForm.find('[data-cy="city-cy"]');
+      const stateInput = vtForm.find('[data-cy="state-cy"]');
+      const zipInput = vtForm.find('[data-cy="zip-cy"]');
+      cy.wrap(amountInput).clear().type("15");
+      cy.wrap(firstInput).clear().type("QA");
+      cy.wrap(lastInput).clear().type("Test");
+      cy.wrap(companyInput).clear().type("Pie Company");
+      cy.wrap(streetInput).clear().type("777 168th St");
+      cy.wrap(cityInput).clear().type("Lincoln");
+      cy.wrap(stateInput).clear().type("NE");
+      cy.wrap(zipInput).clear().type("12345");
     });
   };
 
   fillFormErrors = () => {
     cy.get('[data-cy="vtform"]').then((vtForm) => {
-      const amountLabel = vtForm.find('[data-cy="amount-cy"]');
-      const firstLabel = vtForm.find('[data-cy="first-cy"]');
-      const lastLabel = vtForm.find('[data-cy="last-cy"]');
-      const companyLabel = vtForm.find('[data-cy="company-cy"]');
-      const streetLabel = vtForm.find('[data-cy="street-cy"]');
-      const cityLabel = vtForm.find('[data-cy="city-cy"]');
-      const stateLabel = vtForm.find('[data-cy="state-cy"]');
-      const zipLabel = vtForm.find('[data-cy="zip-cy"]');
-      cy.wrap(amountLabel).clear().type("-15");
-      cy.wrap(firstLabel).clear().type("QA{}");
-      cy.wrap(lastLabel).clear().type("Test{}");
-      cy.wrap(companyLabel).clear().type("Pie Company {}");
-      cy.wrap(streetLabel).clear().type("777 168th St {}");
-      cy.wrap(cityLabel).clear().type("Lincoln -!");
-      cy.wrap(stateLabel).clear().type("NEB");
-      cy.wrap(zipLabel).clear().type("123456");
+      const amountInput = vtForm.find('[data-cy="amount-cy"]');
+      const firstInput = vtForm.find('[data-cy="first-cy"]');
+      const lastInput = vtForm.find('[data-cy="last-cy"]');
+      const companyInput = vtForm.find('[data-cy="company-cy"]');
+      const streetInput = vtForm.find('[data-cy="street-cy"]');
+      const cityInput = vtForm.find('[data-cy="city-cy"]');
+      const stateInput = vtForm.find('[data-cy="state-cy"]');
+      const zipInput = vtForm.find('[data-cy="zip-cy"]');
+      cy.wrap(amountInput).clear().type("-15");
+      cy.wrap(firstInput).clear().type("QA{}");
+      cy.wrap(lastInput).clear().type("Test{}");
+      cy.wrap(companyInput).clear().type("Pie Company {}");
+      cy.wrap(streetInput).clear().type("777 168th St {}");
+      cy.wrap(cityInput).clear().type("Lincoln -!");
+      cy.wrap(stateInput).clear().type("NEB");
+      cy.wrap(zipInput).clear().type("123456");
     });
   };
 }
