@@ -45,7 +45,11 @@ const InvoiceDetail = (props) => {
       <header>
         <h2>Invoice #: {invoice && invoice.invoice_number}</h2>
         <div>
-          <button onClick={deleteHandler} className="btn-dark-orange">
+          <button
+            onClick={deleteHandler}
+            className="btn-dark-orange"
+            data-cy="deletebtn"
+          >
             Delete Invoice
           </button>
         </div>

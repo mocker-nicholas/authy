@@ -31,6 +31,17 @@ describe("Create invoice request body returns with proper params", () => {
       expect(req.response.body.message).to.exist;
     });
   });
+
+  it("Deletes the invoice when the delete button is clicked", () => {
+    cy.intercept("DELETE", "**/api/invoice/**").as("deletereq");
+    cy.get('[data-cy="deletebtn"]').click();
+
+    cy.wait("@deletereq");
+    cy.get("@deletereq").then((req) => {
+      console.log(req.response);
+      expect(req).to.exist;
+    });
+  });
 });
 
 describe("Create invoice request returns error when inproper response is returned", () => {
@@ -49,5 +60,10 @@ describe("Create invoice request returns error when inproper response is returne
       "contain",
       "There was a problem creating your invoice"
     );
+  });
+
+  it("the error button keeps you on the same page", () => {
+    cy.get(".btn-dark-blue").contains("Go Back").click();
+    cy.url().should("eq", "http://localhost:3000/invoice/create");
   });
 });
