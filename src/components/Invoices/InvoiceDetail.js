@@ -16,7 +16,7 @@ const InvoiceDetail = (props) => {
   const deleteHandler = async () => {
     setLoader(true);
     const response = await deleteInvoice(params.invoiceId);
-    if (response.data.affectedRows) {
+    if (response.data[0].success) {
       setLoader(false);
       navigate("/invoice");
     } else {

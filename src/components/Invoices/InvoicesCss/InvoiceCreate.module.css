@@ -35,6 +35,10 @@
     align-items: center;
 }
 
+.invoiceForm .formGroup {
+    margin-bottom: 0.5rem;
+}
+
 .invoiceForm form p {
     font-size: 0.75rem;
 }

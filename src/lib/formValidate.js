@@ -90,7 +90,7 @@ export const validateInput = (name, value) => {
       if (value.trim() === "") {
         hasError = true;
         error = "Street address cannot be empty";
-      } else if (/[@!&$%^*]/g.test(value)) {
+      } else if (/[@!&$%^*{}]/g.test(value)) {
         hasError = true;
         error = "Invalid Address. Avoid Special characters";
       } else {

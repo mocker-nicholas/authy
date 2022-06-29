@@ -23,6 +23,7 @@ export class invoiceCreatePage {
   fillFormErrors = () => {
     cy.get('[data-cy="invoiceForm"]').then((invoiceForm) => {
       const amountInput = invoiceForm.find('[data-cy="amount"]');
+      const descriptionInput = invoiceForm.find('[data-cy="description"]');
       const firstInput = invoiceForm.find('[data-cy="first"]');
       const lastInput = invoiceForm.find('[data-cy="last"]');
       const streetInput = invoiceForm.find('[data-cy="street"]');
@@ -30,6 +31,7 @@ export class invoiceCreatePage {
       const stateInput = invoiceForm.find('[data-cy="state"]');
       const zipInput = invoiceForm.find('[data-cy="zip"]');
       cy.wrap(amountInput).clear().type("-15");
+      cy.wrap(descriptionInput).clear().type("QA JOB Description {}[]");
       cy.wrap(firstInput).clear().type("QA{}");
       cy.wrap(lastInput).clear().type("Test{}");
       cy.wrap(streetInput).clear().type("777 168th St {}");

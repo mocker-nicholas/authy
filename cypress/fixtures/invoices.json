@@ -1,0 +1,86 @@
+[
+  {
+    "invoice_number": 111111,
+    "address": "5435 Willow Drive",
+    "city": "Create City",
+    "state": "PA",
+    "zip": "86477",
+    "first_name": "Will",
+    "last_name": "Willson",
+    "job_description": "Testing Invoice Creation",
+    "paid": 0,
+    "amount": 234.76
+  },
+  {
+    "invoice_number": 111112,
+    "address": "123 Drury Lane",
+    "city": "Topeka",
+    "state": "ks",
+    "zip": "111111",
+    "first_name": "firstname",
+    "last_name": "lastname",
+    "job_description": "a fake job that was done well",
+    "paid": 0,
+    "amount": 15.54
+  },
+  {
+    "invoice_number": 111113,
+    "address": "5893 your parents house",
+    "city": "Omaha",
+    "state": "NE",
+    "zip": "68137",
+    "first_name": "Abby",
+    "last_name": "isCool",
+    "job_description": "Babysitting the pets and general housekeeping",
+    "paid": 0,
+    "amount": 0.01
+  },
+  {
+    "invoice_number": 111114,
+    "address": "5289 East Branch Blvd",
+    "city": "Salem",
+    "state": "OR",
+    "zip": "90909",
+    "first_name": "Chris",
+    "last_name": "Archer",
+    "job_description": "Gym membership for getting swole",
+    "paid": 0,
+    "amount": 25.15
+  },
+  {
+    "invoice_number": 111115,
+    "address": "777 168th St",
+    "city": "Lincoln",
+    "state": "NE",
+    "zip": "12345",
+    "first_name": "QA",
+    "last_name": "Test",
+    "job_description": "QA JOB Description",
+    "paid": 0,
+    "amount": 15
+  },
+  {
+    "invoice_number": 111116,
+    "address": "777 168th St",
+    "city": "Lincoln",
+    "state": "NE",
+    "zip": "12345",
+    "first_name": "QA",
+    "last_name": "Test",
+    "job_description": "QA JOB Description",
+    "paid": 0,
+    "amount": 15
+  },
+  {
+    "invoice_number": 111116,
+    "address": "123 Drury Lane",
+    "city": "Lenexa",
+    "state": "KS",
+    "zip": "66215",
+    "first_name": "Moe",
+    "last_name": "Thomas",
+    "job_description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "paid": 1,
+    "amount": 600
+  }
+]
