@@ -112,26 +112,26 @@ describe("Create invoice request body returns with proper params", () => {
   });
 });
 
-// describe("Create invoice request returns error when inproper response is returned", () => {
-//   it("shows a user the error message", () => {
-//     cy.get('[data-cy="invoicenavlink"]').click();
-//     cy.intercept("POST", "**/create", [{ error: "there was a problem" }]).as(
-//       "createreq"
-//     );
+describe("Create invoice request returns error when inproper response is returned", () => {
+  it("shows a user the error message", () => {
+    cy.get('[data-cy="invoicenavlink"]').click();
+    cy.intercept("POST", "**/create", [{ error: "there was a problem" }]).as(
+      "createreq"
+    );
 
-//     cy.get('[data-cy="createbtn"]').click();
-//     onInvoiceCreatePage.fillForm();
-//     cy.get('[data-cy="submitbtn"]').click();
-//     cy.get('[data-cy="submitbtn"]').click();
-//     cy.wait("@createreq");
-//     cy.get('[data-cy="errorbox"]').should(
-//       "contain",
-//       "There was a problem creating your invoice"
-//     );
-//   });
+    cy.get('[data-cy="createbtn"]').click();
+    onInvoiceCreatePage.fillForm();
+    cy.get('[data-cy="submitbtn"]').click();
+    cy.get('[data-cy="submitbtn"]').click();
+    cy.wait("@createreq");
+    cy.get('[data-cy="errorbox"]').should(
+      "contain",
+      "There was a problem creating your invoice"
+    );
+  });
 
-//   it("the error button keeps you on the same page", () => {
-//     cy.get(".btn-dark-blue").contains("Go Back").click();
-//     cy.url().should("eq", "http://localhost:3000/invoice/create");
-//   });
-// });
+  it("the error button keeps you on the same page", () => {
+    cy.get(".btn-dark-blue").contains("Go Back").click();
+    cy.url().should("eq", "http://localhost:3000/invoice/create");
+  });
+});

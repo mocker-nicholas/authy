@@ -33,7 +33,7 @@ const InvoiceDetail = (props) => {
         setInvoice(data.data[0]);
         setLoader(false);
       } else {
-        setError({ message: "Could not locate your invoice" });
+        setError({ message: `${data.data[0].error}` });
         setLoader(false);
       }
     };

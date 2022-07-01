@@ -77,6 +77,11 @@ export const getACustomer = async (id) => {
   return response;
 };
 
+export const searchCustomers = async (body) => {
+  const response = await request.post("/customer/search", body);
+  return response;
+};
+
 export const chargeCustomer = async (body) => {
   const response = await request.post(`/customer/${body.id}/charge`, {
     ...body,
