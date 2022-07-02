@@ -131,7 +131,9 @@ const fakeMonth = [
 describe("The homepage makes the weekly data request", () => {
   it("The week request fires", () => {
     // Set up intercepts before you navigate to page
-    cy.intercept("POST", "**/week").as("weekData");
+    // easiest way to do query strings is going to be an intercept object
+    // If we want to mock the response we can pass in a file from our fixtures directory with the fixture object {fixture: "fixture/path"}
+    cy.intercept({ method: "POST", path: "**/week" }).as("weekData");
     cy.intercept("POST", "**/month").as("monthData");
     cy.intercept("GET", "**/unsettled/total").as("totalData");
 
@@ -143,7 +145,9 @@ describe("The homepage makes the weekly data request", () => {
 
     cy.get("@weekData").should("exist");
     cy.get("@monthData").should("exist");
-    cy.get("@totalData").should("exist");
+    cy.get("@totalData")
+      .should("exist")
+      .then((data) => console.log(data));
 
     cy.get("@weekData").then((week) => {
       expect(week.response.body).to.be.a("array");
@@ -154,8 +158,7 @@ describe("The homepage makes the weekly data request", () => {
     });
 
     cy.get("@totalData").then((total) => {
-      console.log(total.response.body);
-      expect(total.response.body.total_trans).to.exist;
+      expect(total.response.body.totalTrans).to.exist;
       expect(total.response.body.unsettled_total).to.exist;
     });
   });
