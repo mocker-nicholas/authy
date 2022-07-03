@@ -141,11 +141,13 @@ const CustomerDetail = (props) => {
                     onChange={onChangeHandler}
                     type="text"
                     value={amount.value}
+                    data-cy="custchargeamount"
                   />
                   <button
                     className={`${classes.chargeBtn} btn-dark-orange`}
                     onClick={chargeHandler}
                     disabled={amount.error}
+                    data-cy="custchargebtn"
                   >
                     Charge
                   </button>
@@ -153,6 +155,7 @@ const CustomerDetail = (props) => {
                     onClick={deleteHandler}
                     className="btn-dark-orange"
                     disabled={amount.error}
+                    data-cy="custdeletebtn"
                   >
                     Delete
                   </button>
