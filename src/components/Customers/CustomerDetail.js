@@ -1,7 +1,11 @@
 import { React, useEffect, useState } from "react";
 import classes from "./CustomersCss/CustomerDetail.module.css";
 import { useParams, useNavigate } from "react-router-dom";
-import { getACustomer, chargeCustomer } from "../../lib/requests";
+import {
+  getACustomer,
+  chargeCustomer,
+  deleteCustomer,
+} from "../../lib/requests";
 import Loader from "../UI/Loader";
 import ErrorBox from "../UI/ErrorBox";
 
@@ -51,7 +55,7 @@ const CustomerDetail = (props) => {
     }
   };
 
-  const submitHandler = async () => {
+  const chargeHandler = async () => {
     setLoader(true);
     const response = await chargeCustomer({
       id: params.customerId,
@@ -64,6 +68,18 @@ const CustomerDetail = (props) => {
       setError({
         message: response.data.transactionResponse.errors[0].errorText,
       });
+      setLoader(false);
+    }
+  };
+
+  const deleteHandler = async () => {
+    setLoader(true);
+    const response = await deleteCustomer(params.customerId);
+    if (response.data.messages.resultCode === "Ok") {
+      navigate("/customer");
+      setLoader(false);
+    } else {
+      setError({ message: "There was a problem deleting the customer" });
       setLoader(false);
     }
   };
@@ -127,11 +143,18 @@ const CustomerDetail = (props) => {
                     value={amount.value}
                   />
                   <button
-                    onClick={submitHandler}
-                    className="btn-dark-orange"
+                    className={`${classes.chargeBtn} btn-dark-orange`}
+                    onClick={chargeHandler}
                     disabled={amount.error}
                   >
                     Charge
+                  </button>
+                  <button
+                    onClick={deleteHandler}
+                    className="btn-dark-orange"
+                    disabled={amount.error}
+                  >
+                    Delete
                   </button>
                 </div>
                 <p>{amount.error}</p>

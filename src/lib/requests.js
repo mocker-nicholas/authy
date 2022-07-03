@@ -89,6 +89,11 @@ export const chargeCustomer = async (body) => {
   return response;
 };
 
+export const deleteCustomer = async (id) => {
+  const response = await request.delete(`/customer/${id}`);
+  return response;
+};
+
 export const getInvoices = async () => {
   const response = await request.post("/invoice");
   return response;

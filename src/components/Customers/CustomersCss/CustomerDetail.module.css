@@ -39,9 +39,14 @@
     margin-top: 0.5rem;
     margin-right: 1rem;
 }
+
 .amount p {
     color: red;
     font-size: 0.75rem;
+}
+
+.amount .chargeBtn {
+    margin-right: 1rem;
 }
 
 .info {
@@ -51,13 +56,18 @@
     background-color: #f4f4f4;
     border-radius: 4px;
     width: 90%;
-    min-width: 400px;
-    max-width: 800px;
 }
 
 .info li {
     border-bottom: 1px solid var(--yellow);
     margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 600px) {
+    .info {
+        font-size: 0.85rem;
+        width: 98vw;
+    }
 }
 
 
