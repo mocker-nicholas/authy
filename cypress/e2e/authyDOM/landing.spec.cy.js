@@ -5,12 +5,35 @@ describe("Page Loads", () => {
     cy.openLandingPage();
   });
 
-  // The dom elements are all present
-  it("Dom elements present", () => {
-    cy.get('[data-cy="app-button"]').should("exist");
+  it("The first card has the correct content", () => {
     cy.get('[data-cy="card-1"]').should("exist");
+    cy.get('[data-cy="card-1"]')
+      .find("h3")
+      .should("contain", "Mobile Friendly");
+    cy.get('[data-cy="card-1"]')
+      .find("p")
+      .should("contain", "Take payments from any device");
+  });
+
+  it("The second card has the correct content", () => {
     cy.get('[data-cy="card-2"]').should("exist");
+    cy.get('[data-cy="card-2"]').find("h3").should("contain", "Secure");
+    cy.get('[data-cy="card-2"]')
+      .find("p")
+      .should("contain", "Stay PCI compliant with hosted payments");
+  });
+
+  it("The third card has the correct content", () => {
     cy.get('[data-cy="card-3"]').should("exist");
+    cy.get('[data-cy="card-3"]').find("h3").should("contain", "Collect");
+    cy.get('[data-cy="card-3"]')
+      .find("p")
+      .should("contain", "Reach your customers in more ways");
+  });
+
+  it("The button to continue to the main app is there", () => {
+    cy.get('[data-cy="app-button"]').should("exist");
+    cy.get('[data-cy="app-button"]').should("contain", "Continue to App");
   });
 
   // The Link component correctly brings you to /home route
