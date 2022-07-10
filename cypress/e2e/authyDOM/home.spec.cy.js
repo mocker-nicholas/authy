@@ -43,9 +43,9 @@ describe("Dom Fires API requests to get display data for charts and summary", ()
 describe("Home page loads api response data correctly", () => {
   it("Has the total summarys", () => {
     cy.wait(1000);
-    cy.get('[data-cy="total-1"]').should("contain", "Previous Week: $");
-    cy.get('[data-cy="total-2"]').should("contain", "Pending Total: $");
-    cy.get('[data-cy="total-3"]').should("contain", "Pending Transactions");
+    cy.get('[data-cy="total-1"]').should("contain", "Previous Week: $6000.00");
+    cy.get('[data-cy="total-2"]').should("contain", "Pending Total: $1999.99");
+    cy.get('[data-cy="total-3"]').should("contain", "Pending Transactions: 69");
   });
 
   it("Graphs spawn in", () => {
