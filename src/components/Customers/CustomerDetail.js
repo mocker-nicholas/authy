@@ -64,6 +64,11 @@ const CustomerDetail = (props) => {
     if (response.data.messages.resultCode === "Ok") {
       navigate(`/reporting/${response.data.transactionResponse.transId}`);
       setLoader(false);
+    } else if (response.data.messages.resultCode === "Error") {
+      setError({
+        message: response.data.messages.message[0].text,
+      });
+      setLoader(false);
     } else {
       setError({
         message: response.data.transactionResponse.errors[0].errorText,
@@ -139,14 +144,14 @@ const CustomerDetail = (props) => {
                     className={classes.amountInput}
                     onBlur={onBlurHandler}
                     onChange={onChangeHandler}
-                    type="text"
+                    type="number"
                     value={amount.value}
                     data-cy="custchargeamount"
                   />
                   <button
                     className={`${classes.chargeBtn} btn-dark-orange`}
                     onClick={chargeHandler}
-                    disabled={amount.error}
+                    disabled={amount.error || amount.value === "0.00"}
                     data-cy="custchargebtn"
                   >
                     Charge
@@ -154,7 +159,6 @@ const CustomerDetail = (props) => {
                   <button
                     onClick={deleteHandler}
                     className="btn-dark-orange"
-                    disabled={amount.error}
                     data-cy="custdeletebtn"
                   >
                     Delete
