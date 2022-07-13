@@ -2,7 +2,7 @@ import axios from "axios";
 
 const baseUrl = "https://dolphin-app-rvmeg.ondigitalocean.app/api";
 // const devUrl = "http://localhost:8080/api";
-// prod url = https://dolphin-app-rvmeg.ondigitalocean.app/api
+// prod url = https://dolphin-app-rvmeg.ondigitalocean.app/api testing ssh
 
 export const request = axios.create({
   withCredentials: true,
